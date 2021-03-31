@@ -1,14 +1,26 @@
 <template>
+    <Lang/>
     <Header/>
+    <Summary/>
+    <HardSkills/>
+    <SoftSkills/>
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import Lang from './components/Lang.vue';
+import Header from './components/Header.vue';
+import Summary from './components/Summary.vue';
+import HardSkills from './components/HardSkills.vue';
+import SoftSkills from './components/SoftSkills.vue';
 
 export default {
     name: 'App',
     components: {
-        Header
+        Lang,
+        Header,
+        Summary,
+        HardSkills,
+        SoftSkills,
     }
 }
 </script>
@@ -18,4 +30,5 @@ export default {
 @import "~@/styles/reset.scss";
 @import "~@/styles/fonts.scss";
 @import "~@/styles/base.scss";
+@import "~@/styles/section.scss";
 </style>

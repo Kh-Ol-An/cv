@@ -1,0 +1,19 @@
+{
+  "name": "Oleg",
+  "surname": "Khristenko",
+  "profession": "Front-End Developer",
+  "phone": "Phone",
+  "website": "Website",
+  "summary": "Summary",
+  "summaryText": "To be interesting, be interested.",
+  "summaryContent": "Results-oriented software developer and research professional. I make it my goal to create software with the user in mind, creating applications with a useable and intuitive user interface experience. I also understand the importance of creating highly readable and easily maintainable source code. I am constantly striving to learn new technologies and look to ways to better myself in this rapidly changing industry.",
+  "hardSkills": "Hard Skills",
+  "hardSkillsText": "What I can",
+  "hardSkillsEnglish": "English (Pre-Intermediate)",
+  "softSkills": "Soft Skills",
+  "softSkillsText": "How good I am",
+  "softSkillsTeamPlayer": "Team player",
+  "softSkillsResponsible": "Responsible",
+  "softSkillsScrupulous": "Scrupulous",
+  "softSkillsCommunicable": "Communicable"
+}
