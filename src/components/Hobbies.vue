@@ -1,0 +1,74 @@
+<template>
+    <section class='hobbies section'>
+        <div class='container'>
+            <div class='hobbies__naming section__naming'>
+                <h2 class='section__title'>{{ getContentLang.hobbies }}</h2>
+                <p class='section__naming-text'>{{ getContentLang.hobbiesText }}</p>
+            </div>
+            <div class='hobbies__content section__content'>
+                <ul class='section__content-quality'>
+                    <li class='section__content-quality-item'>
+                        <span class='section__content-quality-item-count'></span>
+                        <p class='section__title'>{{ getContentLang.hobbiesMeditations }}</p>
+                    </li>
+                    <li class='section__content-quality-item'>
+                        <span class='section__content-quality-item-count'></span>
+                        <p class='section__title'>{{ getContentLang.hobbiesBooks }}</p>
+                    </li>
+                    <li class='section__content-quality-item'>
+                        <span class='section__content-quality-item-count'></span>
+                        <p class='section__title'>{{ getContentLang.hobbiesCycling }}</p>
+                    </li>
+                    <li class='section__content-quality-item'>
+                        <span class='section__content-quality-item-count'></span>
+                        <p class='section__title'>{{ getContentLang.hobbiesSnowboarding }}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</template>
+
+<script>
+import {mapGetters} from "vuex";
+
+export default {
+    name: "Hobbies",
+    computed: {
+        ...mapGetters(["getContentLang"]),
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+@import "~@/styles/variables.scss";
+
+.hobbies {
+    &::before {
+        background: $bg-color_3;
+    }
+
+    &::after {
+        background: $bg-color_2;
+    }
+
+    &__naming {
+        background: $bg-color_3;
+    }
+
+    &__content {
+        background: $bg-color_2;
+
+        .section__content-quality-item-count {
+            width: 10px;
+            height: 10px;
+            background: $active-color;
+            border-radius: 50%;
+            margin-right: 20px;
+            margin-left: -5px;
+        }
+    }
+}
+
+@import "~@/styles/media.scss";
+</style>

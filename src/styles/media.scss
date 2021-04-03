@@ -1,10 +1,102 @@
-@media (max-width: 1023px) {
+@media (max-width: 2559px) {
     html {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .container {
+        max-width: 1440px;
+    }
+
+    .lang {
+        left: 30px;
+
+        &::before {
+            top: 30px;
+            left: -15px;
+        }
+
+        &::after {
+            top: 77px;
+            left: -15px;
+        }
+
+        &__list-item::after {
+            top: 12px;
+            left: -19px;
+        }
+    }
+}
+
+@media (max-width: 1599px) {
+    html {
+        font-size: 13px;
+    }
+
+    .container {
+        max-width: 1250px;
+    }
+}
+
+@media (max-width: 1365px) {
+    html {
+        font-size: 12px;
+    }
+
+    .container {
+        max-width: 880px;
+    }
+
+    .section__naming-text {
+        width: 140px;
+    }
+
+    .header__naming-ava {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hobbies .section__naming-text {
+        width: 130px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .container {
         flex-direction: column;
+        max-width: 100%;
+    }
+
+    .lang {
+        left: unset;
+        right: -40px;
+
+        &::before,
+        &::after {
+            display: none;
+        }
+
+        &__switch {
+            display: flex;
+        }
+
+        &__list-item {
+            width: 40px;
+            height: 40px;
+            margin-top: 0;
+            background: $bg-color_2;
+
+            &::after {
+                display: none;
+            }
+
+            &.active .section__content-text {
+                color: $active-color;
+            }
+
+            .section__content-text {
+                font-size: 1.1667rem;
+            }
+        }
     }
 
     .section {
@@ -22,6 +114,7 @@
             background: $bg-color_3;
 
             &-text {
+                width: 100%;
                 text-align: left;
             }
         }
@@ -31,6 +124,10 @@
             margin-top: -1px;
             padding: 50px;
             background: $bg-color_1;
+
+            &-quality {
+                grid-gap: 40px;
+            }
 
             &-places-item {
                 flex-direction: column;
@@ -45,6 +142,10 @@
                 }
             }
         }
+    }
+
+    .hobbies .section__naming-text {
+        width: 100%;
     }
 
     .header {
@@ -78,8 +179,16 @@
                     align-items: center;
                     margin-top: 10px;
 
+                    &-profession {
+                        text-align: center;
+                    }
+
                     &-list {
                         margin-top: 35px;
+
+                        &-item {
+                            font-size: 14px;
+                        }
                     }
                 }
             }
@@ -100,30 +209,20 @@
         padding-top: 0;
     }
 
-    .footer {
-        .header__content-contacts {
-            margin-top: 0;
-        }
+    .footer__content-presentation-bottom {
+        margin-top: 90px;
 
-        .header__content-presentation {
-            &-title {
-                align-items: flex-start;
-            }
-
-            &-bottom {
-                flex-direction: row;
-                align-items: flex-end;
-                margin-top: 90px;
-
-                &-list {
-                    margin-top: 0;
-                }
-            }
+        &-list-item {
+            font-size: 14px;
         }
     }
 }
 
 @media (max-width: 767px) {
+    html {
+        font-size: 14px;
+    }
+
     .section {
         &__naming {
             padding: 25px;
@@ -150,12 +249,13 @@
             padding: 0;
 
             &-ava {
-                width: 154px;
-                height: 154px;
+                width: 130px;
+                height: 130px;
             }
         }
 
         &__content {
+            margin-top: 15px;
             padding: 0;
 
             &-presentation {
@@ -169,19 +269,28 @@
                     }
                 }
 
-                &-bottom-profession {
-                    font-size: 14px;
+                &-bottom {
+                    margin-top: 5px;
+
+                    &-profession {
+                        font-size: 14px;
+                    }
+
+                    &-list {
+                        margin-top: 20px;
+                    }
                 }
             }
 
             &-contacts {
                 margin-top: auto;
+                padding-top: 30px;
 
                 &-list {
                     flex-direction: column;
 
                     &-item {
-                        margin-top: 25px;
+                        margin-top: 20px;
                         text-align: center;
 
                         &:first-child {
@@ -217,26 +326,60 @@
         grid-template-columns: 1fr;
     }
 
-    .footer {
-        .header__content {
-            &-contacts-list {
-                align-items: flex-start;
+    .footer__content {
+        &-contacts-list {
+            flex-direction: column;
+            align-items: flex-start;
 
-                &-item {
-                    text-align: left;
+            &-item {
+                text-align: left;
+                margin-top: 25px;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        &-presentation-bottom {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 50px;
+
+            &-title {
+                &-name {
+                    font-size: 42px;
+                }
+
+                &-surname {
+                    font-size: 42px;
                 }
             }
 
-            &-presentation-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-                margin-top: 50px;
-
-                &-list {
-                    height: max-content;
-                    margin: 25px 0;
-                }
+            &-list {
+                height: max-content;
+                margin: 25px 0;
             }
+        }
+    }
+}
+
+@media (max-width: 374px) {
+    html {
+        font-size: 10px;
+    }
+
+    .header__content-presentation-title {
+        &-name,
+        &-surname {
+            font-size: 34px;
+        }
+    }
+
+    .footer__content-presentation-bottom-title {
+        &-name,
+        &-surname {
+            font-size: 34px;
         }
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <header class='header section'>
+    <header class='header section' ref="header">
         <div class='container'>
             <div class='header__naming section__naming'>
                 <div class='header__naming-ava'>
@@ -16,7 +16,7 @@
                         <h2 class='header__content-presentation-bottom-profession'>{{ getContentLang.profession }}</h2>
                         <ul class='header__content-presentation-bottom-list'>
                             <li class='header__content-presentation-bottom-list-item'>
-                                <a href='https://linkedin.com/in/kh-ol-an/'>
+                                <a href='https://linkedin.com/in/kh-ol-an/' target='_blank' rel='noopener noreferrer'>
                                     <svg enable-background='new 0 0 512 512' height='512px' id='Layer_1' version='1.1'
                                          viewBox='0 0 512 512'
                                          width='512px' xml:space='preserve' xmlns='http://www.w3.org/2000/svg'>
@@ -30,7 +30,7 @@
                                 </a>
                             </li>
                             <li class='header__content-presentation-bottom-list-item'>
-                                <a href='skype:hristenkoleg?chat'>
+                                <a href='viber://chat?number=%2B380508899268'>
                                     <svg role='img' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><title/>
                                         <path
                                             d='M11.398.002C9.473.028 5.331.344 3.014 2.467 1.294 4.177.693 6.698.623 9.82c-.06 3.11-.13 8.95 5.5 10.541v2.42s-.038.97.602
@@ -47,16 +47,6 @@
                                         .3-.301c.03-1.19-.34-2.19-1.07-2.99-.73-.8-1.75-1.25-3.05-1.34a.3.3 0 0 0-.042 0zm.49 1.619a.305.305 0 0 0-.018.611c.99.05 1.47.55 1.53 1.58a.3.3 0 0 0
                                         .3.29h.01a.3.3 0 0 0 .29-.32c-.07-1.34-.8-2.091-2.1-2.161a.305.305 0 0 0-.012 0z'/>
                                     </svg>
-                                    <!--                <img src='./images/socials/viber.svg' alt='viber'>-->
-                                    <!--                <a v-if="isMobile" class="viber" title="Viber" href="viber://add?number=+380508899268">-->
-                                    <!--                  <img src="@/assets/images/icons/viber.png" alt="viber-icons" width="50"/>-->
-                                    <!--                  Viber-->
-                                    <!--                </a>-->
-
-                                    <!--                <a v-else class="viber" title="Viber" href="viber://chat?number=+380508899268">-->
-                                    <!--                  <img src="@/assets/images/icons/viber.png" alt="viber-icons" width="50"/>-->
-                                    <!--                  Viber-->
-                                    <!--                </a>-->
                                 </a>
                             </li>
                             <li class='header__content-presentation-bottom-list-item'>
@@ -76,7 +66,7 @@
                                 </a>
                             </li>
                             <li class='header__content-presentation-bottom-list-item'>
-                                <a href='https://github.com/Kh-Ol-An/'>
+                                <a href='https://github.com/Kh-Ol-An/' target='_blank' rel='noopener noreferrer'>
                                     <svg enable-background='new 0 0 30 30' height='30px' id='Github' version='1.1'
                                          viewBox='0 0 30 30'
                                          width='30px' xml:space='preserve' xmlns='http://www.w3.org/2000/svg'>
@@ -97,7 +87,7 @@
                         <li class='header__content-contacts-list-item'>
                             <h4 class='header__content-contacts-list-item-title'>{{ getContentLang.phone }}</h4>
                             <a href='tel:+380508899268'
-                               class='header__content-contacts-list-item-link'>+380508899268</a>
+                               class='header__content-contacts-list-item-link'>+38 050 88 99 268</a>
                         </li>
                         <li class='header__content-contacts-list-item'>
                             <h4 class='header__content-contacts-list-item-title'>Email</h4>
@@ -110,7 +100,7 @@
                         </li>
                         <li class='header__content-contacts-list-item'>
                             <h4 class='header__content-contacts-list-item-title'>{{ getContentLang.website }}</h4>
-                            <a href='http://kholan.tech/'
+                            <a href='http://kholan.tech/' target='_blank' rel='noopener noreferrer'
                                class='header__content-contacts-list-item-link'>kholan.tech</a>
                         </li>
                     </ul>
@@ -127,7 +117,18 @@ export default {
     name: "Header",
     computed: {
         ...mapGetters(["getContentLang"]),
-    }
+    },
+    mounted() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        window.addEventListener("resize", this.viewportHeightMobile);
+    },
+    methods: {
+        viewportHeightMobile() {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+    },
 }
 </script>
 
@@ -163,6 +164,7 @@ export default {
 
             img {
                 object-fit: cover;
+                filter: grayscale(100%);
             }
         }
     }
@@ -203,7 +205,7 @@ export default {
                 justify-content: space-between;
 
                 &-profession {
-                    font-size: 20px;
+                    font-size: 1.25rem;
                     color: $text-color_2;
                     font-weight: 300;
                 }
@@ -216,12 +218,18 @@ export default {
                         width: 2.375em;
                         height: 2.375em;
                         margin-left: 0.375em;
-                        padding: 0.5em;
                         border-radius: 0.1875em;
                         background: #3f4040;
 
                         &:first-child {
                             margin-left: 0;
+                        }
+
+                        a {
+                            padding: 0.5em;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
                         }
 
                         svg {
@@ -259,16 +267,16 @@ export default {
                 align-items: center;
                 justify-content: space-between;
                 width: 100%;
-                padding-top: 25px;
+                padding-top: 20px;
                 border-top: 2px solid #404242;
 
                 &-item {
                     &-title {
                         color: $text-color_1;
+                        font-weight: 700;
                     }
 
                     &-link {
-                        display: block;
                         color: $text-color_2;
                         transition: all 300ms ease-in-out;
 

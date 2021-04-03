@@ -80,17 +80,6 @@
                 display: flex;
                 flex-wrap: wrap;
                 align-items: center;
-
-                &-count {
-                    font-size: 1.125rem; // 18px
-                    font-weight: 700;
-                    color: $active-color;
-
-                    small {
-                        font-size: 0.875rem;
-                        font-weight: 400;
-                    }
-                }
             }
         }
 
@@ -119,8 +108,8 @@
                 }
 
                 &-place {
-                    min-width: 200px;
-                    width: 200px;
+                    min-width: 14.5em;
+                    width: 14.5em;
                 }
 
                 &-description {

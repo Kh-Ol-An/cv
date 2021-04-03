@@ -4,6 +4,11 @@
     <Summary/>
     <HardSkills/>
     <SoftSkills/>
+    <Experience/>
+    <Education/>
+    <Portfolio/>
+    <Hobbies/>
+    <Footer/>
 </template>
 
 <script>
@@ -12,6 +17,11 @@ import Header from './components/Header.vue';
 import Summary from './components/Summary.vue';
 import HardSkills from './components/HardSkills.vue';
 import SoftSkills from './components/SoftSkills.vue';
+import Experience from './components/Experience.vue';
+import Education from './components/Education.vue';
+import Portfolio from './components/Portfolio.vue';
+import Hobbies from './components/Hobbies.vue';
+import Footer from './components/Footer.vue';
 
 export default {
     name: 'App',
@@ -21,6 +31,11 @@ export default {
         Summary,
         HardSkills,
         SoftSkills,
+        Experience,
+        Education,
+        Portfolio,
+        Hobbies,
+        Footer,
     }
 }
 </script>
@@ -31,4 +46,5 @@ export default {
 @import "~@/styles/fonts.scss";
 @import "~@/styles/base.scss";
 @import "~@/styles/section.scss";
+@import "~@/styles/media.scss";
 </style>

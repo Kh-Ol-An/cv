@@ -1,20 +1,25 @@
 <template>
-    <div class="lang" :class="currentLang">
-        <label
-            v-for="lang in langs"
-            :key="lang"
-            class="lang__label"
-        >
-            <input
-                class="lang__label-input"
-                type="radio"
-                :value="lang"
-                v-model="currentLang"
-                @change="handleChange"
-            />
-            <span class="section__content-text">{{ lang }}</span>
-            <!--            <span class="section__content-text lang__label-shadow">{{ lang }}</span>-->
-        </label>
+    <div>
+        <div class="overlay" :class="{'active': isOpen}" @click="isOpen = false"></div>
+        <div class="lang" :class="{'open': isOpen}">
+            <div class="lang__switch" :class="{'open': isOpen}" @click="isOpen = !isOpen">
+                <div class="lang__switch-line"></div>
+            </div>
+            <ul class="lang__list">
+                <li v-for="lang in langs" :key="lang" class="lang__list-item" :class="{'active': lang === currentLang}">
+                    <label>
+                        <input
+                            class="lang__list-item-input"
+                            type="radio"
+                            :value="lang"
+                            v-model="currentLang"
+                            @change="handleChange"
+                        />
+                        <span class="section__content-text">{{ lang }}</span>
+                    </label>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -26,7 +31,8 @@ export default {
     data() {
         return {
             currentLang: "",
-            langs: ["en", "ua", "ru"]
+            langs: ["en", "ua", "ru"],
+            isOpen: false
         };
     },
     mounted() {
@@ -43,6 +49,7 @@ export default {
         handleChange() {
             this.updateContentLang(this.currentLang);
             localStorage.setItem("lang", this.currentLang);
+            this.isOpen = false
         },
     },
 }
@@ -54,74 +61,93 @@ export default {
 .lang {
     position: fixed;
     top: 50%;
-    right: 50px;
+    left: 50px;
     z-index: 10;
     transform: translateY(-50%);
     display: flex;
-    flex-direction: column;
-    //padding-right: 25px;
-    //border-right: 2px solid #404242;
+    align-items: center;
+    transition: all 300ms ease-in-out;
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 15px;
-        right: -25px;
-        z-index: 1;
-        //transform: translateY(-50%);
-        width: 2px;
-        height: 95px;
-        background: #404242;
+    &.open {
+        right: 0;
     }
 
+    &::before,
     &::after {
         content: '';
         position: absolute;
-        //top: 12px;
-        right: -29.5px;
-        z-index: 2;
-        //transform: translateY(-50%);
-        width: 10px;
-        height: 10px;
-        background: $active-color;
-        box-shadow: 0 0 0 6px transparent;
-        border-radius: 50%;
+        left: -25px;
+        width: 2px;
+        height: 21px;
+        background: #404242;
+    }
+
+    &::before {
+        top: 40px;
+    }
+
+    &::after {
+        top: 95px;
+    }
+
+    &__switch {
+        padding: 0 20px;
         transition: all 300ms ease-in-out;
-    }
 
-    &.en::after {
-        top: 11px;
-    }
-
-    &.ua::after {
-        top: 56px;
-    }
-
-    &.ru::after {
-        top: 102px;
-    }
-
-    &__label {
-        position: relative;
-        margin-top: 15px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &:first-child {
-            margin-top: 0;
+        &.open {
+            padding: 0;
         }
 
-        &-input {
-            display: none;
+        &-line {
+            width: 3px;
+            height: 120px;
+            background: $active-color;
         }
+    }
 
-        .section__content-text {
-            transition: all 300ms ease-in-out;
+    &__list {
+        &-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 15px;
+            cursor: pointer;
 
-            &:hover {
-                color: $active-color;
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 18px;
+                left: -29px;
+                width: 10px;
+                height: 10px;
+                background: #a4a5a6;
+                box-shadow: 0 0 0 6px transparent;
+                border-radius: 50%;
+                transition: all 300ms ease-in-out;
+            }
+
+            &.active::after {
+                background: $active-color;
+            }
+
+
+            &-input {
+                display: none;
+            }
+
+            .section__content-text {
+                font-size: 1rem;
+                line-height: 30px;
+                transition: all 300ms ease-in-out;
+
+                &:hover {
+                    color: $active-color;
+                }
             }
         }
     }
