@@ -100,7 +100,7 @@
                         </li>
                         <li class='header__content-contacts-list-item'>
                             <h4 class='header__content-contacts-list-item-title'>{{ getContentLang.website }}</h4>
-                            <a href='http://kholan.tech/' target='_blank' rel='noopener noreferrer'
+                            <a href='http://kholan.tech/'
                                class='header__content-contacts-list-item-link'>kholan.tech</a>
                         </li>
                     </ul>

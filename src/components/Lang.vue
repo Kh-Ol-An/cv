@@ -91,6 +91,7 @@ export default {
     }
 
     &__switch {
+        display: none;
         padding: 0 20px;
         transition: all 300ms ease-in-out;
 
