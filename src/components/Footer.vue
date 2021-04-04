@@ -1,10 +1,15 @@
 <template>
     <footer class='footer section'>
         <div class='container'>
-            <div class='footer__naming section__naming'>
-                <h2 class='section__title'>{{ getContentLang.contacts }}</h2>
-                <p class='section__naming-text'>{{ getContentLang.contactsText }}</p>
-            </div>
+<!--            <div class='footer__naming section__naming'>-->
+<!--                <h2 class='section__title'>{{ getContentLang.contacts }}</h2>-->
+<!--                <p class='section__naming-text'>{{ getContentLang.contactsText }}</p>-->
+<!--            </div>-->
+            <Naming
+                class="footer__naming"
+                :title="getContentLang.contacts"
+                :text="getContentLang.contactsText"
+            />
             <div class='footer__content section__content'>
                 <div class='footer__content-contacts'>
                     <ul class='footer__content-contacts-list'>
@@ -111,9 +116,11 @@
 
 <script>
 import {mapGetters} from "vuex";
+import Naming from "@/components/Naming.vue";
 
 export default {
     name: "Footer",
+    components: {Naming},
     computed: {
         ...mapGetters(["getContentLang"]),
     }

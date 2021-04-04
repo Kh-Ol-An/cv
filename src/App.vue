@@ -12,16 +12,16 @@
 </template>
 
 <script>
-import Lang from './components/Lang.vue';
-import Header from './components/Header.vue';
-import Summary from './components/Summary.vue';
-import HardSkills from './components/HardSkills.vue';
-import SoftSkills from './components/SoftSkills.vue';
-import Experience from './components/Experience.vue';
-import Education from './components/Education.vue';
-import Portfolio from './components/Portfolio.vue';
-import Hobbies from './components/Hobbies.vue';
-import Footer from './components/Footer.vue';
+import Lang from '@/components/Lang.vue';
+import Header from '@/components/Header.vue';
+import Summary from '@/components/Summary.vue';
+import HardSkills from '@/components/HardSkills.vue';
+import SoftSkills from '@/components/SoftSkills.vue';
+import Experience from '@/components/Experience.vue';
+import Education from '@/components/Education.vue';
+import Portfolio from '@/components/Portfolio.vue';
+import Hobbies from '@/components/Hobbies.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
     name: 'App',

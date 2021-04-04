@@ -1,10 +1,15 @@
 <template>
     <section class='soft-skills section'>
         <div class='container'>
-            <div class='soft-skills__naming section__naming'>
-                <h2 class='section__title'>{{ getContentLang.softSkills }}</h2>
-                <p class='section__naming-text'>{{ getContentLang.softSkillsText }}</p>
-            </div>
+<!--            <div class='soft-skills__naming section__naming'>-->
+<!--                <h2 class='section__title'>{{ getContentLang.softSkills }}</h2>-->
+<!--                <p class='section__naming-text'>{{ getContentLang.softSkillsText }}</p>-->
+<!--            </div>-->
+            <Naming
+                class="soft-skills__naming"
+                :title="getContentLang.softSkills"
+                :text="getContentLang.softSkillsText"
+            />
             <div class='soft-skills__content section__content'>
                 <ul class='section__content-quality'>
                     <li class='section__content-quality-item'>
@@ -31,9 +36,11 @@
 
 <script>
 import {mapGetters} from "vuex";
+import Naming from "@/components/Naming.vue";
 
 export default {
     name: "SoftSkills",
+    components: {Naming},
     computed: {
         ...mapGetters(["getContentLang"]),
     }

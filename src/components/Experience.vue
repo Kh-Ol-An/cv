@@ -1,10 +1,15 @@
 <template>
     <section class='experience section'>
         <div class='container'>
-            <div class='experience__naming section__naming'>
-                <h2 class='section__title'>{{ getContentLang.experience }}</h2>
-                <p class='section__naming-text'>{{ getContentLang.experienceText }}</p>
-            </div>
+<!--            <div class='experience__naming section__naming'>-->
+<!--                <h2 class='section__title'>{{ getContentLang.experience }}</h2>-->
+<!--                <p class='section__naming-text'>{{ getContentLang.experienceText }}</p>-->
+<!--            </div>-->
+            <Naming
+                class="experience__naming"
+                :title="getContentLang.experience"
+                :text="getContentLang.experienceText"
+            />
             <div class='experience__content section__content'>
                 <ul class='section__content-places'>
                     <li class='section__content-places-item'>
@@ -118,9 +123,11 @@
 
 <script>
 import {mapGetters} from "vuex";
+import Naming from "@/components/Naming.vue";
 
 export default {
     name: "Experience",
+    components: {Naming},
     computed: {
         ...mapGetters(["getContentLang"]),
     }

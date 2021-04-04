@@ -1,10 +1,15 @@
 <template>
     <section class='portfolio section'>
         <div class='container'>
-            <div class='portfolio__naming section__naming'>
-                <h2 class='section__title'>{{ getContentLang.portfolio }}</h2>
-                <p class='section__naming-text'>{{ getContentLang.portfolioText }}</p>
-            </div>
+<!--            <div class='portfolio__naming section__naming'>-->
+<!--                <h2 class='section__title'>{{ getContentLang.portfolio }}</h2>-->
+<!--                <p class='section__naming-text'>{{ getContentLang.portfolioText }}</p>-->
+<!--            </div>-->
+            <Naming
+                class="portfolio__naming"
+                :title="getContentLang.portfolio"
+                :text="getContentLang.portfolioText"
+            />
             <div class='portfolio__content section__content'>
                 <ul class='portfolio__content-list'>
                     <li class='portfolio__content-list-item'>
@@ -100,9 +105,11 @@
 
 <script>
 import {mapGetters} from "vuex";
+import Naming from "@/components/Naming.vue";
 
 export default {
     name: "Portfolio",
+    components: {Naming},
     computed: {
         ...mapGetters(["getContentLang"]),
     }

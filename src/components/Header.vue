@@ -2,20 +2,28 @@
     <header class='header section' ref="header">
         <div class='container'>
             <div class='header__naming section__naming'>
-                <div class='header__naming-ava'>
+                <div class='header__naming-ava' ref="ava">
                     <img src='@/assets/images/ava.jpg' alt='ava'>
                 </div>
             </div>
             <div class='header__content section__content'>
                 <div class='header__content-presentation'>
                     <h1 class='header__content-presentation-title'>
-                        <span class='header__content-presentation-title-name'>{{ getContentLang.name }}</span>
-                        <span class='header__content-presentation-title-surname'>{{ getContentLang.surname }}</span>
+                        <span class='header__content-presentation-title-name' ref="name">{{
+                                getContentLang.name
+                            }}</span>
+                        <p class='header__content-presentation-title-surname' ref="surname">
+                            <span>{{ getContentLang.surname }}</span>
+                            <!--                            <video autoplay loop muted="muted">-->
+                            <!--                                <source src="@/assets/videos/smoke.mp4" type='video/mp4'>-->
+                            <!--                            </video>-->
+                        </p>
                     </h1>
                     <div class='header__content-presentation-bottom'>
-                        <h2 class='header__content-presentation-bottom-profession'>{{ getContentLang.profession }}</h2>
+                        <h2 class='header__content-presentation-bottom-profession' ref="profession">
+                            {{ getContentLang.profession }}</h2>
                         <ul class='header__content-presentation-bottom-list'>
-                            <li class='header__content-presentation-bottom-list-item'>
+                            <li class='header__content-presentation-bottom-list-item' ref="social1">
                                 <a href='https://linkedin.com/in/kh-ol-an/' target='_blank' rel='noopener noreferrer'>
                                     <svg enable-background='new 0 0 512 512' height='512px' id='Layer_1' version='1.1'
                                          viewBox='0 0 512 512'
@@ -29,7 +37,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class='header__content-presentation-bottom-list-item'>
+                            <li class='header__content-presentation-bottom-list-item' ref="social2">
                                 <a href='viber://chat?number=%2B380508899268'>
                                     <svg role='img' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><title/>
                                         <path
@@ -49,7 +57,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class='header__content-presentation-bottom-list-item'>
+                            <li class='header__content-presentation-bottom-list-item' ref="social3">
                                 <a href='tg://resolve?domain=@kholan'>
                                     <svg height='512px' style='enable-background:new 0 0 512 512;' version='1.1'
                                          viewBox='0 0 512 512'
@@ -65,7 +73,7 @@
                                     </svg>
                                 </a>
                             </li>
-                            <li class='header__content-presentation-bottom-list-item'>
+                            <li class='header__content-presentation-bottom-list-item' ref="social4">
                                 <a href='https://github.com/Kh-Ol-An/' target='_blank' rel='noopener noreferrer'>
                                     <svg enable-background='new 0 0 30 30' height='30px' id='Github' version='1.1'
                                          viewBox='0 0 30 30'
@@ -83,22 +91,22 @@
                     </div>
                 </div>
                 <div class='header__content-contacts'>
-                    <ul class='header__content-contacts-list'>
-                        <li class='header__content-contacts-list-item'>
+                    <ul class='header__content-contacts-list' ref="line">
+                        <li class='header__content-contacts-list-item' ref="content1">
                             <h4 class='header__content-contacts-list-item-title'>{{ getContentLang.phone }}</h4>
                             <a href='tel:+380508899268'
                                class='header__content-contacts-list-item-link'>+38 050 88 99 268</a>
                         </li>
-                        <li class='header__content-contacts-list-item'>
+                        <li class='header__content-contacts-list-item' ref="content2">
                             <h4 class='header__content-contacts-list-item-title'>Email</h4>
                             <a href='mailto:olegkhristenko@gmail.com' class='header__content-contacts-list-item-link'>olegkhristenko@gmail.com</a>
                         </li>
-                        <li class='header__content-contacts-list-item'>
+                        <li class='header__content-contacts-list-item' ref="content3">
                             <h4 class='header__content-contacts-list-item-title'>Skype</h4>
                             <a href='skype:hristenkoleg?chat'
                                class='header__content-contacts-list-item-link'>hristenkoleg</a>
                         </li>
-                        <li class='header__content-contacts-list-item'>
+                        <li class='header__content-contacts-list-item' ref="content4">
                             <h4 class='header__content-contacts-list-item-title'>{{ getContentLang.website }}</h4>
                             <a href='http://kholan.tech/'
                                class='header__content-contacts-list-item-link'>kholan.tech</a>
@@ -115,18 +123,48 @@ import {mapGetters} from "vuex";
 
 export default {
     name: "Header",
+    data: () => ({
+        observer: null,
+    }),
     computed: {
         ...mapGetters(["getContentLang"]),
     },
     mounted() {
-        const vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        this.viewportHeightMobile();
         window.addEventListener("resize", this.viewportHeightMobile);
+
+        this.observer = new IntersectionObserver(this.onEntry);
+
+        this.observer.observe(this.$refs.ava);
+        this.observer.observe(this.$refs.name);
+        this.observer.observe(this.$refs.surname);
+        this.observer.observe(this.$refs.profession);
+        this.observer.observe(this.$refs.social1);
+        this.observer.observe(this.$refs.social2);
+        this.observer.observe(this.$refs.social3);
+        this.observer.observe(this.$refs.social4);
+        this.observer.observe(this.$refs.line);
+        this.observer.observe(this.$refs.content1);
+        this.observer.observe(this.$refs.content2);
+        this.observer.observe(this.$refs.content3);
+        this.observer.observe(this.$refs.content4);
     },
     methods: {
         viewportHeightMobile() {
             const vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
+        },
+        onEntry(entries) {
+            entries.forEach(el => {
+                el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
+                // if (el.isIntersecting) {
+                //     el.target.classList.contains("first") && el.target.classList.add("active")
+                //     el.target.classList.contains("second") && el.target.classList.add("active-second")
+                // } else {
+                //     el.target.classList.remove("active-first")
+                //     el.target.classList.remove("active-second")
+                // }
+            });
         }
     },
 }
@@ -161,6 +199,16 @@ export default {
             height: 236px;
             border-radius: 50%;
             overflow: hidden;
+            opacity: 0;
+            transform: translateY(100px);
+            //animation: ava-down-up 1200ms 700ms ease-in-out;
+            //animation-fill-mode: forwards;
+
+            &.active {
+                opacity: 1;
+                transform: translateY(0);
+                transition: all 1200ms 700ms ease-in-out;
+            }
 
             img {
                 object-fit: cover;
@@ -182,19 +230,68 @@ export default {
                 flex-direction: column;
 
                 &-name {
+                    position: relative;
+                    z-index: 1;
                     font-size: 68px;
                     line-height: 1;
                     font-weight: 300;
                     color: $text-color_1;
                     text-transform: lowercase;
+                    opacity: 0;
+                    transform: translateY(50px);
+                    //animation: down-up 1200ms 1000ms ease-in-out;
+                    //animation-fill-mode: forwards;
+
+                    &.active {
+                        opacity: 1;
+                        transform: translateY(0);
+                        transition: all 1200ms 1000ms ease-in-out;
+                    }
                 }
 
                 &-surname {
+                    //position: relative;
+                    width: max-content;
                     font-size: 68px;
                     line-height: 1;
                     font-weight: 700;
                     color: $active-color;
                     text-transform: uppercase;
+                    opacity: 0;
+                    //animation: down-up 1200ms 1200ms ease-in-out;
+                    //animation-fill-mode: forwards;
+                    transform: translateY(50px);
+
+                    &.active {
+                        opacity: 1;
+                        transform: translateY(0);
+                        transition: all 1200ms 1200ms ease-in-out;
+                    }
+
+                    //&:before {
+                    //    content: '';
+                    //    position: absolute;
+                    //    top: 0;
+                    //    left: 0;
+                    //    width: 100%;
+                    //    height: 100%;
+                    //    background: red;
+                    //    background: linear-gradient(to right, red, green, blue);
+                    //    mix-blend-mode: color;
+                    //    pointer-events: none;
+                    //}
+
+                    //video {
+                    //    position: absolute;
+                    //    top: 50%;
+                    //    left: 50%;
+                    //    z-index: -1;
+                    //    //width: 150%;
+                    //    //height: 150%;
+                    //    transform: translate(-50%, -50%);
+                    //    //transform-origin: center;
+                    //    object-fit: cover;
+                    //}
                 }
             }
 
@@ -208,6 +305,16 @@ export default {
                     font-size: 1.25rem;
                     color: $text-color_2;
                     font-weight: 300;
+                    opacity: 0;
+                    //animation: down-up 1200ms 1400ms ease-in-out;
+                    //animation-fill-mode: forwards;
+                    transform: translateY(50px);
+
+                    &.active {
+                        opacity: 1;
+                        transform: translateY(0);
+                        transition: all 1200ms 1400ms ease-in-out;
+                    }
                 }
 
                 &-list {
@@ -221,8 +328,57 @@ export default {
                         border-radius: 0.1875em;
                         background: #3f4040;
 
-                        &:first-child {
+                        &:nth-child(1) {
                             margin-left: 0;
+                            opacity: 0;
+                            //animation: down-up 1200ms 1700ms ease-in-out;
+                            //animation-fill-mode: forwards;
+                            transform: translateY(50px);
+
+                            &.active {
+                                opacity: 1;
+                                transform: translateY(0);
+                                transition: all 1200ms 1700ms ease-in-out;
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            opacity: 0;
+                            //animation: down-up 1200ms 1800ms ease-in-out;
+                            //animation-fill-mode: forwards;
+                            transform: translateY(50px);
+
+                            &.active {
+                                opacity: 1;
+                                transform: translateY(0);
+                                transition: all 1200ms 1800ms ease-in-out;
+                            }
+                        }
+
+                        &:nth-child(3) {
+                            opacity: 0;
+                            //animation: down-up 1200ms 1900ms ease-in-out;
+                            //animation-fill-mode: forwards;
+                            transform: translateY(50px);
+
+                            &.active {
+                                opacity: 1;
+                                transform: translateY(0);
+                                transition: all 1200ms 1900ms ease-in-out;
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            opacity: 0;
+                            //animation: down-up 1200ms 2000ms ease-in-out;
+                            //animation-fill-mode: forwards;
+                            transform: translateY(50px);
+
+                            &.active {
+                                opacity: 1;
+                                transform: translateY(0);
+                                transition: all 1200ms 2000ms ease-in-out;
+                            }
                         }
 
                         a {
@@ -263,14 +419,84 @@ export default {
             width: calc(100% - 60px);
 
             &-list {
+                position: relative;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 width: 100%;
                 padding-top: 20px;
-                border-top: 2px solid #404242;
+                //border-top: 2px solid #404242;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: #404242;
+                    //animation: left-right 1200ms 2300ms ease-in-out;
+                    //animation-fill-mode: forwards;
+                }
+
+                &.active::before {
+                    width: 100%;
+                    transition: all 1200ms 2300ms ease-in-out;
+                }
 
                 &-item {
+                    &:nth-child(1) {
+                        opacity: 0;
+                        //animation: down-up 1200ms 2300ms ease-in-out;
+                        //animation-fill-mode: forwards;
+                        transform: translateY(50px);
+
+                        &.active {
+                            opacity: 1;
+                            transform: translateY(0);
+                            transition: all 1200ms 2300ms ease-in-out;
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        opacity: 0;
+                        //animation: down-up 1200ms 2400ms ease-in-out;
+                        //animation-fill-mode: forwards;
+                        transform: translateY(50px);
+
+                        &.active {
+                            opacity: 1;
+                            transform: translateY(0);
+                            transition: all 1200ms 2400ms ease-in-out;
+                        }
+                    }
+
+                    &:nth-child(3) {
+                        opacity: 0;
+                        //animation: down-up 1200ms 2500ms ease-in-out;
+                        //animation-fill-mode: forwards;
+                        transform: translateY(50px);
+
+                        &.active {
+                            opacity: 1;
+                            transform: translateY(0);
+                            transition: all 1200ms 2500ms ease-in-out;
+                        }
+                    }
+
+                    &:nth-child(4) {
+                        opacity: 0;
+                        //animation: down-up 1200ms 2600ms ease-in-out;
+                        //animation-fill-mode: forwards;
+                        transform: translateY(50px);
+
+                        &.active {
+                            opacity: 1;
+                            transform: translateY(0);
+                            transition: all 1200ms 2600ms ease-in-out;
+                        }
+                    }
+
                     &-title {
                         color: $text-color_1;
                         font-weight: 700;
@@ -287,6 +513,37 @@ export default {
                 }
             }
         }
+    }
+}
+
+@keyframes ava-down-up {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes down-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes left-right {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
     }
 }
 

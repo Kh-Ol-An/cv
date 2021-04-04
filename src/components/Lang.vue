@@ -113,7 +113,6 @@ export default {
             align-items: center;
             justify-content: center;
             margin-top: 15px;
-            cursor: pointer;
 
             &:first-child {
                 margin-top: 0;
@@ -144,6 +143,7 @@ export default {
             .section__content-text {
                 font-size: 1rem;
                 line-height: 30px;
+                cursor: pointer;
                 transition: all 300ms ease-in-out;
 
                 &:hover {
