@@ -1,10 +1,6 @@
 <template>
     <section class='hobbies section'>
         <div class='container'>
-<!--            <div class='hobbies__naming section__naming'>-->
-<!--                <h2 class='section__title'>{{ getContentLang.hobbies }}</h2>-->
-<!--                <p class='section__naming-text'>{{ getContentLang.hobbiesText }}</p>-->
-<!--            </div>-->
             <Naming
                 class="hobbies__naming"
                 :title="getContentLang.hobbies"
@@ -14,19 +10,19 @@
                 <ul class='section__content-quality'>
                     <li class='section__content-quality-item'>
                         <span class='section__content-quality-item-count'></span>
-                        <p class='section__title'>{{ getContentLang.hobbiesMeditations }}</p>
+                        <p class='naming__title'>{{ getContentLang.hobbiesMeditations }}</p>
                     </li>
                     <li class='section__content-quality-item'>
                         <span class='section__content-quality-item-count'></span>
-                        <p class='section__title'>{{ getContentLang.hobbiesBooks }}</p>
+                        <p class='naming__title'>{{ getContentLang.hobbiesBooks }}</p>
                     </li>
                     <li class='section__content-quality-item'>
                         <span class='section__content-quality-item-count'></span>
-                        <p class='section__title'>{{ getContentLang.hobbiesCycling }}</p>
+                        <p class='naming__title'>{{ getContentLang.hobbiesCycling }}</p>
                     </li>
                     <li class='section__content-quality-item'>
                         <span class='section__content-quality-item-count'></span>
-                        <p class='section__title'>{{ getContentLang.hobbiesSnowboarding }}</p>
+                        <p class='naming__title'>{{ getContentLang.hobbiesSnowboarding }}</p>
                     </li>
                 </ul>
             </div>

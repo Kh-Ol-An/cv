@@ -1,10 +1,6 @@
 <template>
     <section class='portfolio section'>
         <div class='container'>
-<!--            <div class='portfolio__naming section__naming'>-->
-<!--                <h2 class='section__title'>{{ getContentLang.portfolio }}</h2>-->
-<!--                <p class='section__naming-text'>{{ getContentLang.portfolioText }}</p>-->
-<!--            </div>-->
             <Naming
                 class="portfolio__naming"
                 :title="getContentLang.portfolio"
@@ -12,86 +8,86 @@
             />
             <div class='portfolio__content section__content'>
                 <ul class='portfolio__content-list'>
-                    <li class='portfolio__content-list-item'>
+                    <li class='portfolio__content-list-item' ref="wo">
                         <a href='https://wo.ua/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/wo.jpg' alt='wo'>
                             <div class='portfolio__content-list-item-description'>
-                                <h3 class='section__title'>WO</h3>
+                                <h3 class='naming__title'>WO</h3>
                                 <hr class='portfolio__content-list-item-description-line'>
                                 <p class='section__content-text'>{{ getContentLang.portfolioWO }}</p>
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item'>
+                    <li class='portfolio__content-list-item' ref="cecotec">
                         <a href='https://cecotec.tech/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/cecotec.jpg'
                                  alt='cecotec'>
                             <div class='portfolio__content-list-item-description'>
-                                <h3 class='section__title'>Cecotec</h3>
+                                <h3 class='naming__title'>Cecotec</h3>
                                 <hr class='portfolio__content-list-item-description-line'>
                                 <p class='section__content-text'>{{ getContentLang.portfolioCecotec }}</p>
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item'>
+                    <li class='portfolio__content-list-item' ref="smartGroup">
                         <a href='https://smartgroup.ua/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/smart-group.jpg'
                                  alt='smart-group'>
                             <div class='portfolio__content-list-item-description'>
-                                <h3 class='section__title'>Smart Group</h3>
+                                <h3 class='naming__title'>Smart Group</h3>
                                 <hr class='portfolio__content-list-item-description-line'>
                                 <p class='section__content-text'>{{ getContentLang.portfolioSmartGroup }}</p>
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item'>
+                    <li class='portfolio__content-list-item' ref="yunmai">
                         <a href='https://yunmai.ua/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/yunmai.jpg' alt='yunmai'>
                             <div class='portfolio__content-list-item-description'>
-                                <h3 class='section__title'>Yunmai</h3>
+                                <h3 class='naming__title'>Yunmai</h3>
                                 <hr class='portfolio__content-list-item-description-line'>
                                 <p class='section__content-text'>{{ getContentLang.portfolioYunmai }}</p>
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item'>
+                    <li class='portfolio__content-list-item' ref="deebot">
                         <a href='https://deebot.ua/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/deebot.jpg' alt='deebot'>
                             <div class='portfolio__content-list-item-description'>
-                                <h3 class='section__title'>Deebot</h3>
+                                <h3 class='naming__title'>Deebot</h3>
                                 <hr class='portfolio__content-list-item-description-line'>
                                 <p class='section__content-text'>{{ getContentLang.portfolioDeebot }}</p>
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item'>
+                    <li class='portfolio__content-list-item' ref="ecovacs">
                         <a href='https://ecovacsrobots.ru/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/ecovacs.jpg'
                                  alt='ecovacs'>
                             <div class='portfolio__content-list-item-description'>
-                                <h3 class='section__title'>Ecovacs</h3>
+                                <h3 class='naming__title'>Ecovacs</h3>
                                 <hr class='portfolio__content-list-item-description-line'>
                                 <p class='section__content-text'>{{ getContentLang.portfolioEcovacs }}</p>
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item'>
+                    <li class='portfolio__content-list-item' ref="profitWhales">
                         <a href='https://profitwhales.com/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/profit-whales.jpg'
                                  alt='profit-whales'>
                             <div class='portfolio__content-list-item-description'>
-                                <h3 class='section__title'>Profit Whales</h3>
+                                <h3 class='naming__title'>Profit Whales</h3>
                                 <hr class='portfolio__content-list-item-description-line'>
                                 <p class='section__content-text'>{{ getContentLang.portfolioProfitWhales }}</p>
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item'>
+                    <li class='portfolio__content-list-item' ref="goToGoal">
                         <a href='https://go-to-goal.goit.co.ua/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/go-to-goal.jpg'
                                  alt='go-to-goal'>
                             <div class='portfolio__content-list-item-description'>
-                                <h3 class='section__title'>Go to Goal</h3>
+                                <h3 class='naming__title'>Go to Goal</h3>
                                 <hr class='portfolio__content-list-item-description-line'>
                                 <p class='section__content-text'>{{ getContentLang.portfolioGoToGoal }}</p>
                             </div>
@@ -110,9 +106,32 @@ import Naming from "@/components/Naming.vue";
 export default {
     name: "Portfolio",
     components: {Naming},
+    data: () => ({
+        observer: null,
+    }),
     computed: {
         ...mapGetters(["getContentLang"]),
-    }
+    },
+    mounted() {
+
+        this.observer = new IntersectionObserver(this.onEntry);
+
+        this.observer.observe(this.$refs.wo);
+        this.observer.observe(this.$refs.cecotec);
+        this.observer.observe(this.$refs.smartGroup);
+        this.observer.observe(this.$refs.yunmai);
+        this.observer.observe(this.$refs.deebot);
+        this.observer.observe(this.$refs.ecovacs);
+        this.observer.observe(this.$refs.profitWhales);
+        this.observer.observe(this.$refs.goToGoal);
+    },
+    methods: {
+        onEntry(entries) {
+            entries.forEach(el => {
+                el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
+            });
+        }
+    },
 }
 </script>
 
@@ -174,19 +193,21 @@ export default {
                     }
                 }
 
-                &:hover .portfolio__content-list-item-img {
-                    opacity: 0.2;
-                    transform: scale(1.012);
-                    filter: grayscale(0);
-                }
+                &:hover .portfolio__content-list-item {
+                    &-img {
+                        opacity: 0.2;
+                        transform: scale(1.012);
+                        filter: grayscale(0);
+                    }
 
-                &:hover .portfolio__content-list-item-description {
-                    opacity: 1;
-                    transform: scale(1.012);
+                    &-description {
+                        opacity: 1;
+                        transform: scale(1.012);
 
-                    &-line {
-                        width: 15%;
-                      background: $active-color;
+                        &-line {
+                            width: 15%;
+                            background: $active-color;
+                        }
                     }
                 }
             }

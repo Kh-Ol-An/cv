@@ -1,10 +1,6 @@
 <template>
     <footer class='footer section'>
         <div class='container'>
-<!--            <div class='footer__naming section__naming'>-->
-<!--                <h2 class='section__title'>{{ getContentLang.contacts }}</h2>-->
-<!--                <p class='section__naming-text'>{{ getContentLang.contactsText }}</p>-->
-<!--            </div>-->
             <Naming
                 class="footer__naming"
                 :title="getContentLang.contacts"
@@ -184,7 +180,7 @@ export default {
 
                 &-title {
                     display: flex;
-                    flex-direction: column;
+                    flex-flow: column;
 
                     &-name {
                         font-size: 68px;

@@ -1,10 +1,6 @@
 <template>
     <section class='experience section'>
         <div class='container'>
-<!--            <div class='experience__naming section__naming'>-->
-<!--                <h2 class='section__title'>{{ getContentLang.experience }}</h2>-->
-<!--                <p class='section__naming-text'>{{ getContentLang.experienceText }}</p>-->
-<!--            </div>-->
             <Naming
                 class="experience__naming"
                 :title="getContentLang.experience"
@@ -15,7 +11,7 @@
                     <li class='section__content-places-item'>
                         <div class='section__content-places-item-place'>
                             <p class='section__content-time'>2020.04 - {{ getContentLang.experiencePresent }}</p>
-                            <h3 class='section__title'>Smart Group</h3>
+                            <h3 class='naming__title'>Smart Group</h3>
                             <p class='section__content-status'>{{ getContentLang.profession }}</p>
                             <p class='section__content-location'>{{ getContentLang.experienceKiev }}</p>
                         </div>
@@ -47,7 +43,7 @@
                     <li class='section__content-places-item'>
                         <div class='section__content-places-item-place'>
                             <p class='section__content-time'>2019.10 - 2020.03</p>
-                            <h3 class='section__title'>Profit Whales</h3>
+                            <h3 class='naming__title'>Profit Whales</h3>
                             <p class='section__content-status'>{{ getContentLang.experienceProfessionProfitWhales }}</p>
                             <p class='section__content-location'>{{ getContentLang.experienceKiev }}</p>
                         </div>
@@ -79,7 +75,7 @@
                     <li class='section__content-places-item'>
                         <div class='section__content-places-item-place'>
                             <p class='section__content-time'>2019.09 - 2019.10</p>
-                            <h3 class='section__title'>Go IT</h3>
+                            <h3 class='naming__title'>Go IT</h3>
                             <p class='section__content-status'>{{ getContentLang.experienceProfessionGoIT }}</p>
                             <p class='section__content-location'>{{ getContentLang.experienceKiev }}</p>
                         </div>
@@ -113,7 +109,7 @@
                         </div>
                     </li>
                     <li class='section__content-places-item'>
-                        <p class='section__title'>{{ getContentLang.experienceSales }}</p>
+                        <p class='naming__title'>{{ getContentLang.experienceSales }}</p>
                     </li>
                 </ul>
             </div>

@@ -1,7 +1,7 @@
 <template>
-    <div class='section__naming'>
-        <h2 class='section__title'>{{ title }}</h2>
-        <p class='section__naming-text'>{{ text }}</p>
+    <div class='naming'>
+        <h2 class='naming__title'>{{ title }}</h2>
+        <p class='naming__text'>{{ text }}</p>
     </div>
 </template>
 
@@ -12,29 +12,29 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "~@/styles/variables.scss";
 
-//.naming {
-//    display: flex;
-//    flex-direction: column;
-//    align-items: flex-end;
-//    width: 30%;
-//    height: 100%;
-//    padding: 50px 60px 50px 0;
-//
-//    &__title {
-//        font-size: 1.125rem; // 18px
-//        font-weight: 700;
-//        color: $text-color_1;
-//        text-transform: uppercase;
-//    }
-//
-//    &__text {
-//        color: $text-color_2;
-//        text-align: right;
-//    }
-//}
+.naming {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    width: 30%;
+    height: 100%;
+    padding: 50px 60px 50px 0;
+
+    &__title {
+        font-size: 1.125rem; // 18px
+        font-weight: 700;
+        color: $text-color_1;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        color: $text-color_2;
+        text-align: right;
+    }
+}
 
 @import "~@/styles/media.scss";
 </style>

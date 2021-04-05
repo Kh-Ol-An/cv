@@ -1,10 +1,6 @@
 <template>
     <section class='soft-skills section'>
         <div class='container'>
-<!--            <div class='soft-skills__naming section__naming'>-->
-<!--                <h2 class='section__title'>{{ getContentLang.softSkills }}</h2>-->
-<!--                <p class='section__naming-text'>{{ getContentLang.softSkillsText }}</p>-->
-<!--            </div>-->
             <Naming
                 class="soft-skills__naming"
                 :title="getContentLang.softSkills"
@@ -14,19 +10,19 @@
                 <ul class='section__content-quality'>
                     <li class='section__content-quality-item'>
                         <span class='section__content-quality-item-count'></span>
-                        <p class='section__title'>{{ getContentLang.softSkillsTeamPlayer }}</p>
+                        <p class='naming__title'>{{ getContentLang.softSkillsTeamPlayer }}</p>
                     </li>
                     <li class='section__content-quality-item'>
                         <span class='section__content-quality-item-count'></span>
-                        <p class='section__title'>{{ getContentLang.softSkillsResponsible }}</p>
+                        <p class='naming__title'>{{ getContentLang.softSkillsResponsible }}</p>
                     </li>
                     <li class='section__content-quality-item'>
                         <span class='section__content-quality-item-count'></span>
-                        <p class='section__title'>{{ getContentLang.softSkillsScrupulous }}</p>
+                        <p class='naming__title'>{{ getContentLang.softSkillsScrupulous }}</p>
                     </li>
                     <li class='section__content-quality-item'>
                         <span class='section__content-quality-item-count'></span>
-                        <p class='section__title'>{{ getContentLang.softSkillsCommunicable }}</p>
+                        <p class='naming__title'>{{ getContentLang.softSkillsCommunicable }}</p>
                     </li>
                 </ul>
             </div>

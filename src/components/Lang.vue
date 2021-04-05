@@ -1,11 +1,8 @@
 <template>
     <div>
         <div class="overlay" :class="{'active': isOpen}" @click="isOpen = false"></div>
-        <div class="lang" :class="{'open': isOpen}">
-            <div class="lang__switch" :class="{'open': isOpen}" @click="isOpen = !isOpen">
-                <div class="lang__switch-line"></div>
-            </div>
-            <ul class="lang__list">
+        <div class="lang">
+            <ul class="lang__list" :class="{'open': isOpen}">
                 <li v-for="lang in langs" :key="lang" class="lang__list-item" :class="{'active': lang === currentLang}">
                     <label>
                         <input
@@ -19,6 +16,11 @@
                     </label>
                 </li>
             </ul>
+            <div class="lang__switch" :class="{'open': isOpen}" @click="isOpen = !isOpen">
+                <div class="lang__switch-line1"></div>
+                <div class="lang__switch-line2"></div>
+                <div class="lang__switch-line3"></div>
+            </div>
         </div>
     </div>
 </template>
@@ -32,7 +34,7 @@ export default {
         return {
             currentLang: "",
             langs: ["en", "ua", "ru"],
-            isOpen: false
+            isOpen: false,
         };
     },
     mounted() {
@@ -66,11 +68,6 @@ export default {
     transform: translateY(-50%);
     display: flex;
     align-items: center;
-    transition: all 300ms ease-in-out;
-
-    &.open {
-        right: 0;
-    }
 
     &::before,
     &::after {
@@ -91,22 +88,71 @@ export default {
     }
 
     &__switch {
+        position: relative;
         display: none;
-        padding: 0 20px;
-        transition: all 300ms ease-in-out;
+        width: 40px;
+        height: 40px;
+        transition: width 0ms 600ms linear, height 300ms 0ms linear;
 
         &.open {
-            padding: 0;
+            width: 120px;
+            height: 2px;
+            transition: width 0ms 0ms linear, height 300ms 300ms linear;
         }
 
-        &-line {
-            width: 3px;
-            height: 120px;
+        &-line1,
+        &-line2,
+        &-line3 {
+            position: absolute;
+            right: 0;
+            width: 40px;
+            height: 2px;
             background: $active-color;
+            transition: all 300ms 300ms linear;
+        }
+
+        &-line1 {
+            bottom: 100%;
+            transform: translateY(100%);
+        }
+
+        &-line2 {
+            bottom: 50%;
+            transform: translateY(50%);
+        }
+
+        &-line3 {
+            bottom: 0;
+        }
+
+        &.open .lang__switch-line1 {
+            bottom: 0;
+            right: 100%;
+            transform: translate(100%, 0);
+            transition: all 300ms linear;
+        }
+
+        &.open .lang__switch-line2 {
+            bottom: 0;
+            right: 50%;
+            transform: translate(50%, 0);
+            transition: all 300ms linear;
+        }
+
+        &.open .lang__switch-line3 {
+            transition: all 300ms linear;
         }
     }
 
     &__list {
+        overflow: hidden;
+        transition: all 300ms linear;
+
+        &.open {
+            max-height: 40px;
+            transition: all 300ms 300ms linear;
+        }
+
         &-item {
             position: relative;
             display: flex;

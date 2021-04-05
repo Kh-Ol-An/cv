@@ -9,19 +9,17 @@
             <div class='header__content section__content'>
                 <div class='header__content-presentation'>
                     <h1 class='header__content-presentation-title'>
-                        <span class='header__content-presentation-title-name' ref="name">{{
-                                getContentLang.name
-                            }}</span>
-                        <p class='header__content-presentation-title-surname' ref="surname">
-                            <span>{{ getContentLang.surname }}</span>
-                            <!--                            <video autoplay loop muted="muted">-->
-                            <!--                                <source src="@/assets/videos/smoke.mp4" type='video/mp4'>-->
-                            <!--                            </video>-->
-                        </p>
+                        <span class='header__content-presentation-title-name' ref="name">
+                            {{ getContentLang.name }}
+                        </span>
+                        <span class='header__content-presentation-title-surname' ref="surname">
+                            {{ getContentLang.surname }}
+                        </span>
                     </h1>
                     <div class='header__content-presentation-bottom'>
                         <h2 class='header__content-presentation-bottom-profession' ref="profession">
-                            {{ getContentLang.profession }}</h2>
+                            {{ getContentLang.profession }}
+                        </h2>
                         <ul class='header__content-presentation-bottom-list'>
                             <li class='header__content-presentation-bottom-list-item' ref="social1">
                                 <a href='https://linkedin.com/in/kh-ol-an/' target='_blank' rel='noopener noreferrer'>
@@ -157,13 +155,6 @@ export default {
         onEntry(entries) {
             entries.forEach(el => {
                 el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
-                // if (el.isIntersecting) {
-                //     el.target.classList.contains("first") && el.target.classList.add("active")
-                //     el.target.classList.contains("second") && el.target.classList.add("active-second")
-                // } else {
-                //     el.target.classList.remove("active-first")
-                //     el.target.classList.remove("active-second")
-                // }
             });
         }
     },
@@ -190,6 +181,8 @@ export default {
     }
 
     &__naming {
+        position: relative;
+        z-index: 2;
         align-items: flex-end;
         justify-content: center;
         background: $bg-color_2;
@@ -201,8 +194,6 @@ export default {
             overflow: hidden;
             opacity: 0;
             transform: translateY(100px);
-            //animation: ava-down-up 1200ms 700ms ease-in-out;
-            //animation-fill-mode: forwards;
 
             &.active {
                 opacity: 1;
@@ -218,6 +209,8 @@ export default {
     }
 
     &__content {
+        position: relative;
+        z-index: 1;
         display: flex;
         align-items: center;
         background: $bg-color_1;
@@ -227,7 +220,7 @@ export default {
 
             &-title {
                 display: flex;
-                flex-direction: column;
+                flex-flow: column;
 
                 &-name {
                     position: relative;
@@ -239,8 +232,6 @@ export default {
                     text-transform: lowercase;
                     opacity: 0;
                     transform: translateY(50px);
-                    //animation: down-up 1200ms 1000ms ease-in-out;
-                    //animation-fill-mode: forwards;
 
                     &.active {
                         opacity: 1;
@@ -250,7 +241,6 @@ export default {
                 }
 
                 &-surname {
-                    //position: relative;
                     width: max-content;
                     font-size: 68px;
                     line-height: 1;
@@ -258,8 +248,6 @@ export default {
                     color: $active-color;
                     text-transform: uppercase;
                     opacity: 0;
-                    //animation: down-up 1200ms 1200ms ease-in-out;
-                    //animation-fill-mode: forwards;
                     transform: translateY(50px);
 
                     &.active {
@@ -268,30 +256,7 @@ export default {
                         transition: all 1200ms 1200ms ease-in-out;
                     }
 
-                    //&:before {
-                    //    content: '';
-                    //    position: absolute;
-                    //    top: 0;
-                    //    left: 0;
-                    //    width: 100%;
-                    //    height: 100%;
-                    //    background: red;
-                    //    background: linear-gradient(to right, red, green, blue);
-                    //    mix-blend-mode: color;
-                    //    pointer-events: none;
-                    //}
 
-                    //video {
-                    //    position: absolute;
-                    //    top: 50%;
-                    //    left: 50%;
-                    //    z-index: -1;
-                    //    //width: 150%;
-                    //    //height: 150%;
-                    //    transform: translate(-50%, -50%);
-                    //    //transform-origin: center;
-                    //    object-fit: cover;
-                    //}
                 }
             }
 
@@ -306,8 +271,6 @@ export default {
                     color: $text-color_2;
                     font-weight: 300;
                     opacity: 0;
-                    //animation: down-up 1200ms 1400ms ease-in-out;
-                    //animation-fill-mode: forwards;
                     transform: translateY(50px);
 
                     &.active {
@@ -331,8 +294,6 @@ export default {
                         &:nth-child(1) {
                             margin-left: 0;
                             opacity: 0;
-                            //animation: down-up 1200ms 1700ms ease-in-out;
-                            //animation-fill-mode: forwards;
                             transform: translateY(50px);
 
                             &.active {
@@ -344,8 +305,6 @@ export default {
 
                         &:nth-child(2) {
                             opacity: 0;
-                            //animation: down-up 1200ms 1800ms ease-in-out;
-                            //animation-fill-mode: forwards;
                             transform: translateY(50px);
 
                             &.active {
@@ -357,8 +316,6 @@ export default {
 
                         &:nth-child(3) {
                             opacity: 0;
-                            //animation: down-up 1200ms 1900ms ease-in-out;
-                            //animation-fill-mode: forwards;
                             transform: translateY(50px);
 
                             &.active {
@@ -370,8 +327,6 @@ export default {
 
                         &:nth-child(4) {
                             opacity: 0;
-                            //animation: down-up 1200ms 2000ms ease-in-out;
-                            //animation-fill-mode: forwards;
                             transform: translateY(50px);
 
                             &.active {
@@ -425,7 +380,6 @@ export default {
                 justify-content: space-between;
                 width: 100%;
                 padding-top: 20px;
-                //border-top: 2px solid #404242;
 
                 &::before {
                     content: '';
@@ -435,8 +389,6 @@ export default {
                     width: 0;
                     height: 2px;
                     background: #404242;
-                    //animation: left-right 1200ms 2300ms ease-in-out;
-                    //animation-fill-mode: forwards;
                 }
 
                 &.active::before {
@@ -447,8 +399,6 @@ export default {
                 &-item {
                     &:nth-child(1) {
                         opacity: 0;
-                        //animation: down-up 1200ms 2300ms ease-in-out;
-                        //animation-fill-mode: forwards;
                         transform: translateY(50px);
 
                         &.active {
@@ -460,8 +410,6 @@ export default {
 
                     &:nth-child(2) {
                         opacity: 0;
-                        //animation: down-up 1200ms 2400ms ease-in-out;
-                        //animation-fill-mode: forwards;
                         transform: translateY(50px);
 
                         &.active {
@@ -473,8 +421,6 @@ export default {
 
                     &:nth-child(3) {
                         opacity: 0;
-                        //animation: down-up 1200ms 2500ms ease-in-out;
-                        //animation-fill-mode: forwards;
                         transform: translateY(50px);
 
                         &.active {
@@ -486,8 +432,6 @@ export default {
 
                     &:nth-child(4) {
                         opacity: 0;
-                        //animation: down-up 1200ms 2600ms ease-in-out;
-                        //animation-fill-mode: forwards;
                         transform: translateY(50px);
 
                         &.active {
@@ -513,37 +457,6 @@ export default {
                 }
             }
         }
-    }
-}
-
-@keyframes ava-down-up {
-    from {
-        opacity: 0;
-        transform: translateY(100px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes down-up {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes left-right {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
     }
 }
 

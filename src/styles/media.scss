@@ -46,7 +46,7 @@
         max-width: 880px;
     }
 
-    .section__naming-text {
+    .naming__text {
         width: 140px;
     }
 
@@ -55,20 +55,24 @@
         height: 200px;
     }
 
-    .hobbies .section__naming-text {
+    .hobbies .naming__text {
         width: 130px;
     }
 }
 
 @media (max-width: 1023px) {
     .container {
-        flex-direction: column;
+        flex-flow: column;
         max-width: 100%;
     }
 
     .lang {
+        top: 25px;
         left: unset;
-        right: -40px;
+        right: 25px;
+        transform: translateY(0);
+        flex-flow: column;
+        align-items: flex-end;
 
         &::before,
         &::after {
@@ -76,26 +80,45 @@
         }
 
         &__switch {
-            display: flex;
+            display: block;
         }
 
-        &__list-item {
-            width: 40px;
-            height: 40px;
-            margin-top: 0;
-            background: $bg-color_2;
+        &__list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-height: 0;
 
-            &::after {
-                display: none;
-            }
+            &-item {
+                width: 40px;
+                height: 40px;
+                margin-top: 0;
+                background: $bg-color_2;
 
-            &.active .section__content-text {
-                color: $active-color;
-            }
+                &::after {
+                    display: none;
+                }
 
-            .section__content-text {
-                font-size: 1.1667rem;
+                &.active .section__content-text {
+                    color: $active-color;
+                }
+
+                .section__content-text {
+                    font-size: 1.1667rem;
+                }
             }
+        }
+    }
+
+    .naming {
+        align-items: flex-start;
+        width: 100%;
+        padding: 50px;
+        background: $bg-color_3;
+
+        &__text {
+            width: 100%;
+            text-align: left;
         }
     }
 
@@ -107,17 +130,17 @@
             display: none;
         }
 
-        &__naming {
-            align-items: flex-start;
-            width: 100%;
-            padding: 50px;
-            background: $bg-color_3;
-
-            &-text {
-                width: 100%;
-                text-align: left;
-            }
-        }
+        //&__naming {
+        //    align-items: flex-start;
+        //    width: 100%;
+        //    padding: 50px;
+        //    background: $bg-color_3;
+        //
+        //    &-text {
+        //        width: 100%;
+        //        text-align: left;
+        //    }
+        //}
 
         &__content {
             width: 100%;
@@ -130,7 +153,7 @@
             }
 
             &-places-item {
-                flex-direction: column;
+                flex-flow: column;
                 margin-top: 25px;
 
                 &-place {
@@ -144,7 +167,7 @@
         }
     }
 
-    .hobbies .section__naming-text {
+    .hobbies .naming__text {
         width: 100%;
     }
 
@@ -165,7 +188,7 @@
         }
 
         &__content {
-            flex-direction: column;
+            flex-flow: column;
             margin-top: 20px;
             padding: 0;
 
@@ -179,7 +202,7 @@
                 }
 
                 &-bottom {
-                    flex-direction: column;
+                    flex-flow: column;
                     align-items: center;
                     margin-top: 10px;
 
@@ -213,6 +236,24 @@
         padding-top: 0;
     }
 
+    .portfolio__content-list-item.active  .portfolio__content-list-item {
+        &-img {
+            opacity: 0.2;
+            transform: scale(1.012);
+            filter: grayscale(0);
+        }
+
+        &-description {
+            opacity: 1;
+            transform: scale(1.012);
+
+            &-line {
+                width: 15%;
+                background: $active-color;
+            }
+        }
+    }
+
     .footer__content-presentation-bottom {
         margin-top: 90px;
 
@@ -227,10 +268,14 @@
         font-size: 14px;
     }
 
+    .naming {
+        padding: 25px;
+    }
+
     .section {
-        &__naming {
-            padding: 25px;
-        }
+        //&__naming {
+        //    padding: 25px;
+        //}
 
         &__content {
             padding: 25px;
@@ -291,7 +336,7 @@
                 padding-top: 30px;
 
                 &-list {
-                    flex-direction: column;
+                    flex-flow: column;
 
                     &-item {
                         margin-top: 20px;
@@ -332,7 +377,7 @@
 
     .footer__content {
         &-contacts-list {
-            flex-direction: column;
+            flex-flow: column;
             align-items: flex-start;
 
             &-item {
@@ -346,7 +391,7 @@
         }
 
         &-presentation-bottom {
-            flex-direction: column;
+            flex-flow: column;
             align-items: flex-start;
             margin-top: 50px;
 

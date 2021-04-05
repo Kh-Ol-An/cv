@@ -1,10 +1,6 @@
 <template>
     <section class='summary section'>
         <div class='container'>
-<!--            <div class='summary__naming section__naming'>-->
-<!--                <h2 class='section__title'>{{ getContentLang.summary }}</h2>-->
-<!--                <p class='section__naming-text'>{{ getContentLang.summaryText }}</p>-->
-<!--            </div>-->
             <Naming
                 class="summary__naming"
                 :title="getContentLang.summary"

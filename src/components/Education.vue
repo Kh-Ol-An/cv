@@ -1,10 +1,6 @@
 <template>
     <section class='education section'>
         <div class='container'>
-            <!--            <div class='education__naming section__naming'>-->
-            <!--                <h2 class='section__title'>{{ getContentLang.education }}</h2>-->
-            <!--                <p class='section__naming-text'>{{ getContentLang.educationText }}</p>-->
-            <!--            </div>-->
             <Naming
                 class="education__naming"
                 :title="getContentLang.education"
@@ -15,7 +11,7 @@
                     <li class='section__content-places-item'>
                         <div class='section__content-places-item-place'>
                             <p class='section__content-time'>2019.05 - 2019.09</p>
-                            <h3 class='section__title'>GoIT UP Scale Academy</h3>
+                            <h3 class='naming__title'>GoIT UP Scale Academy</h3>
                             <p class='section__content-status'>{{ getContentLang.profession }}</p>
                             <p class='section__content-location'>{{ getContentLang.experienceKiev }}</p>
                         </div>
@@ -30,7 +26,7 @@
                     <li class='section__content-places-item'>
                         <div class='section__content-places-item-place'>
                             <p class='section__content-time'>2006.09 - 2011.06</p>
-                            <h3 class='section__title'>{{ getContentLang.educationInstitute }}</h3>
+                            <h3 class='naming__title'>{{ getContentLang.educationInstitute }}</h3>
                             <p class='section__content-status'>{{ getContentLang.educationSpecialist }}</p>
                             <p class='section__content-location'>{{ getContentLang.educationPoltava }}</p>
                         </div>
