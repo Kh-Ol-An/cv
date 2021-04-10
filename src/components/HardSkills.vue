@@ -60,22 +60,21 @@ export default {
     data() {
         return {
             observer: null,
+            observerOptions: {
+                threshold: 1.0
+            },
         }
     },
     computed: {
         ...mapGetters(["getContentLang"]),
     },
     mounted() {
-        let options = {
-            threshold: 1.0
-        }
-
         if (window.innerWidth < 768) {
-            options = {...options, rootMargin: "-25px"}
+            this.observerOptions = {...this.observerOptions, rootMargin: "-24px"}
         } else {
-            options = {...options, rootMargin: "-40px"}
+            this.observerOptions = {...this.observerOptions, rootMargin: "-39px"}
         }
-        this.observer = new IntersectionObserver(this.onEntry, options);
+        this.observer = new IntersectionObserver(this.onEntry, this.observerOptions);
 
         this.observer.observe(this.$refs.js);
         this.observer.observe(this.$refs.jq);

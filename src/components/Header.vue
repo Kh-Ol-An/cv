@@ -200,7 +200,7 @@ export default {
             &.active {
                 opacity: 1;
                 transform: translateY(0);
-                transition: all 1200ms 700ms ease-in-out;
+                transition: all 1200ms ease-in-out;
             }
 
             img {
@@ -238,7 +238,7 @@ export default {
                     &.active {
                         opacity: 1;
                         transform: translateY(0);
-                        transition: all 1200ms 1000ms ease-in-out;
+                        transition: all 1200ms 300ms ease-in-out;
                     }
                 }
 
@@ -255,7 +255,7 @@ export default {
                     &.active {
                         opacity: 1;
                         transform: translateY(0);
-                        transition: all 1200ms 1200ms ease-in-out;
+                        transition: all 1200ms 500ms ease-in-out;
                     }
 
 
@@ -278,7 +278,7 @@ export default {
                     &.active {
                         opacity: 1;
                         transform: translateY(0);
-                        transition: all 1200ms 1400ms ease-in-out;
+                        transition: all 1200ms 700ms ease-in-out;
                     }
                 }
 
@@ -301,7 +301,7 @@ export default {
                             &.active {
                                 opacity: 1;
                                 transform: translateY(0);
-                                transition: all 1200ms 1700ms ease-in-out;
+                                transition: all 1200ms 900ms ease-in-out;
                             }
                         }
 
@@ -312,7 +312,7 @@ export default {
                             &.active {
                                 opacity: 1;
                                 transform: translateY(0);
-                                transition: all 1200ms 1800ms ease-in-out;
+                                transition: all 1200ms 1100ms ease-in-out;
                             }
                         }
 
@@ -323,7 +323,7 @@ export default {
                             &.active {
                                 opacity: 1;
                                 transform: translateY(0);
-                                transition: all 1200ms 1900ms ease-in-out;
+                                transition: all 1200ms 1300ms ease-in-out;
                             }
                         }
 
@@ -334,7 +334,7 @@ export default {
                             &.active {
                                 opacity: 1;
                                 transform: translateY(0);
-                                transition: all 1200ms 2000ms ease-in-out;
+                                transition: all 1200ms 1500ms ease-in-out;
                             }
                         }
 
@@ -395,7 +395,7 @@ export default {
 
                 &.active::before {
                     width: 100%;
-                    transition: all 1200ms 2300ms ease-in-out;
+                    transition: all 1200ms 1800ms ease-in-out;
                 }
 
                 &-item {
@@ -406,7 +406,7 @@ export default {
                         &.active {
                             opacity: 1;
                             transform: translateY(0);
-                            transition: all 1200ms 2300ms ease-in-out;
+                            transition: all 1200ms 2000ms ease-in-out;
                         }
                     }
 
@@ -417,7 +417,7 @@ export default {
                         &.active {
                             opacity: 1;
                             transform: translateY(0);
-                            transition: all 1200ms 2400ms ease-in-out;
+                            transition: all 1200ms 2200ms ease-in-out;
                         }
                     }
 
@@ -428,7 +428,7 @@ export default {
                         &.active {
                             opacity: 1;
                             transform: translateY(0);
-                            transition: all 1200ms 2500ms ease-in-out;
+                            transition: all 1200ms 2400ms ease-in-out;
                         }
                     }
 

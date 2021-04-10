@@ -109,6 +109,10 @@ export default {
     data() {
         return {
             observer: null,
+            observerOptions: {
+                rootMargin: '-24px',
+                threshold: 1.0
+            },
         }
     },
     computed: {
@@ -116,11 +120,7 @@ export default {
     },
     mounted() {
         if (window.innerWidth < 1024) {
-            const options = {
-                rootMargin: '-25px',
-                threshold: 1.0
-            }
-            this.observer = new IntersectionObserver(this.onEntry, options);
+            this.observer = new IntersectionObserver(this.onEntry, this.observerOptions);
 
             this.observer.observe(this.$refs.wo);
             this.observer.observe(this.$refs.cecotec);
