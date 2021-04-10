@@ -145,7 +145,6 @@ export default {
     }
 
     &__list {
-        overflow: hidden;
         transition: all 300ms linear;
 
         &.open {
@@ -172,7 +171,6 @@ export default {
                 width: 10px;
                 height: 10px;
                 background: #a4a5a6;
-                box-shadow: 0 0 0 6px transparent;
                 border-radius: 50%;
                 transition: all 300ms ease-in-out;
             }
