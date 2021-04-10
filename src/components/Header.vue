@@ -1,7 +1,7 @@
 <template>
     <header class='header section' ref="header">
         <div class='container'>
-            <div class='header__naming section__naming'>
+            <div class='header__naming naming'>
                 <div class='header__naming-ava' ref="ava">
                     <img src='@/assets/images/ava.jpg' alt='ava'>
                 </div>
