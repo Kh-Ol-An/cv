@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="overlay" :class="{'active': isOpen}" @click="isOpen = false"></div>
-        <div class="lang">
-            <ul class="lang__list" :class="{'open': isOpen}">
-                <li v-for="lang in langs" :key="lang" class="lang__list-item" :class="{'active': lang === currentLang}">
-                    <label>
+        <div class="lang" :class="{'open': isOpen}">
+            <ul class="lang__list">
+                <li v-for="lang in languages" :key="lang" class="lang__list-item" :class="{'active': lang === currentLang}">
+                    <label class="lang__list-item-label">
                         <input
                             class="lang__list-item-input"
                             type="radio"
@@ -16,7 +16,7 @@
                     </label>
                 </li>
             </ul>
-            <div class="lang__switch" :class="{'open': isOpen}" @click="isOpen = !isOpen">
+            <div class="lang__switch" @click="isOpen = !isOpen">
                 <div class="lang__switch-line1"></div>
                 <div class="lang__switch-line2"></div>
                 <div class="lang__switch-line3"></div>
@@ -33,7 +33,7 @@ export default {
     data() {
         return {
             currentLang: "",
-            langs: ["en", "ua", "ru"],
+            languages: ["en", "ua", "ru"],
             isOpen: false,
         };
     },
@@ -87,71 +87,10 @@ export default {
         top: 95px;
     }
 
-    &__switch {
-        position: relative;
-        display: none;
-        width: 40px;
-        height: 40px;
-        transition: width 0ms 600ms linear, height 300ms 0ms linear;
-
-        &.open {
-            width: 120px;
-            height: 2px;
-            transition: width 0ms 0ms linear, height 300ms 300ms linear;
-        }
-
-        &-line1,
-        &-line2,
-        &-line3 {
-            position: absolute;
-            right: 0;
-            width: 40px;
-            height: 2px;
-            background: $active-color;
-            transition: all 300ms 300ms linear;
-        }
-
-        &-line1 {
-            bottom: 100%;
-            transform: translateY(100%);
-        }
-
-        &-line2 {
-            bottom: 50%;
-            transform: translateY(50%);
-        }
-
-        &-line3 {
-            bottom: 0;
-        }
-
-        &.open .lang__switch-line1 {
-            bottom: 0;
-            right: 100%;
-            transform: translate(100%, 0);
-            transition: all 300ms linear;
-        }
-
-        &.open .lang__switch-line2 {
-            bottom: 0;
-            right: 50%;
-            transform: translate(50%, 0);
-            transition: all 300ms linear;
-        }
-
-        &.open .lang__switch-line3 {
-            transition: all 300ms linear;
-        }
+    &.open {
     }
 
     &__list {
-        transition: all 300ms linear;
-
-        &.open {
-            max-height: 40px;
-            transition: all 300ms 300ms linear;
-        }
-
         &-item {
             position: relative;
             display: flex;
@@ -179,12 +118,24 @@ export default {
                 background: $active-color;
             }
 
+            &-label {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+            }
 
             &-input {
                 display: none;
             }
 
             .section__content-text {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
                 font-size: 1rem;
                 line-height: 30px;
                 cursor: pointer;
@@ -195,6 +146,65 @@ export default {
                 }
             }
         }
+    }
+
+    &.open .lang__list {
+        max-height: 34px;
+        transition: all 300ms 300ms linear;
+    }
+
+    &__switch {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        display: none;
+        width: 100%;
+        height: 100%;
+        transition: all 300ms linear;
+
+        &-line1,
+        &-line2,
+        &-line3 {
+            position: absolute;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: $active-color;
+            transition: all 300ms 300ms linear;
+        }
+
+        &-line1 {
+            bottom: 100%;
+            transform: translateY(100%);
+        }
+
+        &-line2 {
+            bottom: 50%;
+            transform: translateY(50%);
+        }
+
+        &-line3 {
+            bottom: 0;
+        }
+    }
+
+    &.open .lang__switch-line1 {
+        bottom: 0;
+        right: 100%;
+        transform: translate(100%, 0);
+        transition: all 300ms linear;
+    }
+
+    &.open .lang__switch-line2 {
+        bottom: 0;
+        right: 50%;
+        transform: translate(50%, 0);
+        transition: all 300ms linear;
+    }
+
+    &.open .lang__switch-line3 {
+        transition: all 300ms linear;
     }
 }
 
