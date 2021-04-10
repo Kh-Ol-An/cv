@@ -57,14 +57,25 @@ import Naming from "@/components/Naming.vue";
 export default {
     name: "HardSkills",
     components: {Naming},
-    data: () => ({
-        observer: null,
-    }),
+    data() {
+        return {
+            observer: null,
+        }
+    },
     computed: {
         ...mapGetters(["getContentLang"]),
     },
     mounted() {
-        this.observer = new IntersectionObserver(this.onEntry);
+        let options = {
+            threshold: 1.0
+        }
+
+        if (window.innerWidth < 768) {
+            options = {...options, rootMargin: "-25px"}
+        } else {
+            options = {...options, rootMargin: "-40px"}
+        }
+        this.observer = new IntersectionObserver(this.onEntry, options);
 
         this.observer.observe(this.$refs.js);
         this.observer.observe(this.$refs.jq);
@@ -116,7 +127,7 @@ export default {
 
         .section__content-quality-item {
             position: relative;
-            padding-bottom: 12px;
+            padding-bottom: 4px;
 
             &::after {
                 content: '';
@@ -124,8 +135,9 @@ export default {
                 bottom: 0;
                 left: 0;
                 width: 0;
-                height: 5px;
+                height: 3px;
                 background: $active-color;
+                transition: all 600ms ease-in-out;
             }
 
             &.active-first::after {
@@ -135,7 +147,7 @@ export default {
 
             &.active-second::after {
                 width: 15%;
-                transition: all 600ms 100ms ease-in-out;
+                transition: all 600ms 200ms ease-in-out;
             }
         }
     }

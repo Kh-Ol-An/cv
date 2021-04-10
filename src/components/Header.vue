@@ -121,9 +121,11 @@ import {mapGetters} from "vuex";
 
 export default {
     name: "Header",
-    data: () => ({
-        observer: null,
-    }),
+    data() {
+        return {
+            observer: null,
+        }
+    },
     computed: {
         ...mapGetters(["getContentLang"]),
     },

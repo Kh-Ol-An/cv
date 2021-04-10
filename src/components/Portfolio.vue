@@ -106,24 +106,31 @@ import Naming from "@/components/Naming.vue";
 export default {
     name: "Portfolio",
     components: {Naming},
-    data: () => ({
-        observer: null,
-    }),
+    data() {
+        return {
+            observer: null,
+        }
+    },
     computed: {
         ...mapGetters(["getContentLang"]),
     },
     mounted() {
+        if (window.innerWidth < 1024) {
+            const options = {
+                rootMargin: '-25px',
+                threshold: 1.0
+            }
+            this.observer = new IntersectionObserver(this.onEntry, options);
 
-        this.observer = new IntersectionObserver(this.onEntry);
-
-        this.observer.observe(this.$refs.wo);
-        this.observer.observe(this.$refs.cecotec);
-        this.observer.observe(this.$refs.smartGroup);
-        this.observer.observe(this.$refs.yunmai);
-        this.observer.observe(this.$refs.deebot);
-        this.observer.observe(this.$refs.ecovacs);
-        this.observer.observe(this.$refs.profitWhales);
-        this.observer.observe(this.$refs.goToGoal);
+            this.observer.observe(this.$refs.wo);
+            this.observer.observe(this.$refs.cecotec);
+            this.observer.observe(this.$refs.smartGroup);
+            this.observer.observe(this.$refs.yunmai);
+            this.observer.observe(this.$refs.deebot);
+            this.observer.observe(this.$refs.ecovacs);
+            this.observer.observe(this.$refs.profitWhales);
+            this.observer.observe(this.$refs.goToGoal);
+        }
     },
     methods: {
         onEntry(entries) {
