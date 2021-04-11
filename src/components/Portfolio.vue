@@ -7,8 +7,8 @@
                 :text="getContentLang.portfolioText"
             />
             <div class='portfolio__content section__content'>
-                <ul class='portfolio__content-list'>
-                    <li class='portfolio__content-list-item' ref="wo">
+                <ul class='portfolio__content-list' ref="portfolioList">
+                    <li class='portfolio__content-list-item'>
                         <a href='https://wo.ua/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/wo.jpg' alt='wo'>
                             <div class='portfolio__content-list-item-description'>
@@ -18,7 +18,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item' ref="cecotec">
+                    <li class='portfolio__content-list-item'>
                         <a href='https://cecotec.tech/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/cecotec.jpg'
                                  alt='cecotec'>
@@ -29,7 +29,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item' ref="smartGroup">
+                    <li class='portfolio__content-list-item'>
                         <a href='https://smartgroup.ua/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/smart-group.jpg'
                                  alt='smart-group'>
@@ -40,7 +40,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item' ref="yunmai">
+                    <li class='portfolio__content-list-item'>
                         <a href='https://yunmai.ua/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/yunmai.jpg' alt='yunmai'>
                             <div class='portfolio__content-list-item-description'>
@@ -50,7 +50,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item' ref="deebot">
+                    <li class='portfolio__content-list-item'>
                         <a href='https://deebot.ua/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/deebot.jpg' alt='deebot'>
                             <div class='portfolio__content-list-item-description'>
@@ -60,7 +60,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item' ref="ecovacs">
+                    <li class='portfolio__content-list-item'>
                         <a href='https://ecovacsrobots.ru/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/ecovacs.jpg'
                                  alt='ecovacs'>
@@ -71,7 +71,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item' ref="profitWhales">
+                    <li class='portfolio__content-list-item'>
                         <a href='https://profitwhales.com/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/profit-whales.jpg'
                                  alt='profit-whales'>
@@ -82,7 +82,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class='portfolio__content-list-item' ref="goToGoal">
+                    <li class='portfolio__content-list-item'>
                         <a href='https://go-to-goal.goit.co.ua/' target='_blank' rel='noopener noreferrer'>
                             <img class='portfolio__content-list-item-img' src='@/assets/images/go-to-goal.jpg'
                                  alt='go-to-goal'>
@@ -121,15 +121,7 @@ export default {
     mounted() {
         if (window.innerWidth < 1024) {
             this.observer = new IntersectionObserver(this.onEntry, this.observerOptions);
-
-            this.observer.observe(this.$refs.wo);
-            this.observer.observe(this.$refs.cecotec);
-            this.observer.observe(this.$refs.smartGroup);
-            this.observer.observe(this.$refs.yunmai);
-            this.observer.observe(this.$refs.deebot);
-            this.observer.observe(this.$refs.ecovacs);
-            this.observer.observe(this.$refs.profitWhales);
-            this.observer.observe(this.$refs.goToGoal);
+            this.$refs.portfolioList.childNodes.forEach(el => this.observer.observe(el))
         }
     },
     methods: {
@@ -166,13 +158,17 @@ export default {
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 25px;
 
+            @media (max-width: 767px) {
+                grid-template-columns: 1fr;
+            }
+
             &-item {
                 position: relative;
 
                 &-img {
                     opacity: 0.6;
                     filter: grayscale(100%);
-                    transition: all 600ms ease-in-out;
+                    transition: all 600ms linear;
                 }
 
                 &-description {
@@ -183,7 +179,7 @@ export default {
                     height: 100%;
                     padding: 25px;
                     opacity: 0;
-                    transition: all 600ms ease-in-out;
+                    transition: all 600ms linear;
 
                     &-line {
                         width: 0;
@@ -192,7 +188,7 @@ export default {
                         background: $text-color_1;
                         outline: none;
                         border: none;
-                        transition: all 600ms ease-in-out;
+                        transition: all 600ms linear;
                     }
 
                     .section__content-text {
@@ -200,7 +196,7 @@ export default {
                     }
                 }
 
-                &:hover .portfolio__content-list-item {
+                &:hover & {
                     &-img {
                         opacity: 0.2;
                         transform: scale(1.012);
@@ -217,10 +213,32 @@ export default {
                         }
                     }
                 }
+
+                &.active & {
+                    &-img {
+                        @media (max-width: 1023px) {
+                            opacity: 0.2;
+                            transform: scale(1.012);
+                            filter: grayscale(0);
+                        }
+                    }
+
+                    &-description {
+                        @media (max-width: 1023px) {
+                            opacity: 1;
+                            transform: scale(1.012);
+                        }
+
+                        &-line {
+                            @media (max-width: 1023px) {
+                                width: 15%;
+                                background: $active-color;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 }
-
-@import "~@/styles/media.scss";
 </style>

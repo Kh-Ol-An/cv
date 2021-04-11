@@ -150,7 +150,23 @@ export default {
                 padding-bottom: 25px;
                 border-bottom: 2px solid #404242;
 
+                @media (max-width: 767px) {
+                    flex-flow: column;
+                    align-items: flex-start;
+                }
+
                 &-item {
+                    @media (max-width: 767px) {
+                        text-align: left;
+                        margin-top: 25px;
+                    }
+
+                    &:first-child {
+                        @media (max-width: 767px) {
+                            margin-top: 0;
+                        }
+                    }
+
                     &-title {
                         color: $text-color_1;
                         font-weight: 700;
@@ -158,7 +174,7 @@ export default {
 
                     &-link {
                         color: $text-color_2;
-                        transition: all 300ms ease-in-out;
+                        transition: all 300ms linear;
 
                         &:hover {
                             color: $active-color;
@@ -178,6 +194,16 @@ export default {
                 width: 100%;
                 margin-top: 125px;
 
+                @media (max-width: 1023px) {
+                    margin-top: 90px;
+                }
+
+                @media (max-width: 767px) {
+                    flex-flow: column;
+                    align-items: flex-start;
+                    margin-top: 50px;
+                }
+
                 &-title {
                     display: flex;
                     flex-flow: column;
@@ -188,6 +214,14 @@ export default {
                         font-weight: 300;
                         color: $text-color_1;
                         text-transform: lowercase;
+
+                        @media (max-width: 767px) {
+                            font-size: 42px;
+                        }
+
+                        @media (max-width: 374px) {
+                            font-size: 34px;
+                        }
                     }
 
                     &-surname {
@@ -196,6 +230,14 @@ export default {
                         font-weight: 700;
                         color: $active-color;
                         text-transform: uppercase;
+
+                        @media (max-width: 767px) {
+                            font-size: 42px;
+                        }
+
+                        @media (max-width: 374px) {
+                            font-size: 34px;
+                        }
                     }
                 }
 
@@ -204,12 +246,21 @@ export default {
                     align-items: center;
                     height: 68px;
 
+                    @media (max-width: 767px) {
+                        height: max-content;
+                        margin: 25px 0;
+                    }
+
                     &-item {
                         width: 2.375em;
                         height: 2.375em;
                         margin-left: 0.375em;
                         border-radius: 0.1875em;
                         background: #3f4040;
+
+                        @media (max-width: 1023px) {
+                            font-size: 14px;
+                        }
 
                         &:first-child {
                             margin-left: 0;
@@ -227,12 +278,12 @@ export default {
                             height: 100%;
                             fill: #717273;
                             stroke: #717273;
-                            transition: all 300ms ease-in-out;
+                            transition: all 300ms linear;
 
                             path {
                                 fill: #717273;
                                 stroke: #717273;
-                                transition: all 300ms ease-in-out;
+                                transition: all 300ms linear;
                             }
                         }
 
@@ -247,6 +298,4 @@ export default {
         }
     }
 }
-
-@import "~@/styles/media.scss";
 </style>

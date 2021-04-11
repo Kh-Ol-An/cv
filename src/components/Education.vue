@@ -77,9 +77,21 @@ export default {
         padding-top: 0;
         background: $bg-color_2;
 
+        @media (max-width: 1023px) {
+            padding-top: 0;
+        }
+
+        @media (max-width: 767px) {
+            padding-top: 0;
+        }
+
         .section__content-places {
             position: relative;
             padding-top: 50px;
+
+            @media (max-width: 767px) {
+                padding-top: 25px;
+            }
 
             &::before {
                 content: '';
@@ -93,10 +105,12 @@ export default {
 
             &-item::before {
                 box-shadow: 0 0 0 10px $bg-color_2;
+
+                @media (max-width: 767px) {
+                    box-shadow: 0 0 0 10px $bg-color_1;
+                }
             }
         }
     }
 }
-
-@import "~@/styles/media.scss";
 </style>

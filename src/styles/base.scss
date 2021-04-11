@@ -1,6 +1,26 @@
 html {
     font-size: 20px;
     box-sizing: border-box;
+
+    @media (max-width: 2559px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 1599px) {
+        font-size: 13px;
+    }
+
+    @media (max-width: 1365px) {
+        font-size: 12px;
+    }
+
+    @media (max-width: 767px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 374px) {
+        font-size: 10px;
+    }
 }
 
 *,
@@ -62,6 +82,23 @@ i {
     height: 100%;
     margin-right: auto;
     margin-left: auto;
+
+    @media (max-width: 2559px) {
+        max-width: 1440px;
+    }
+
+    @media (max-width: 1599px) {
+        max-width: 1250px;
+    }
+
+    @media (max-width: 1365px) {
+        max-width: 880px;
+    }
+
+    @media (max-width: 1023px) {
+        flex-flow: column;
+        max-width: 100%;
+    }
 }
 
 .overlay {
@@ -72,11 +109,11 @@ i {
     left: 0;
     z-index: -1;
     backdrop-filter: blur(0);
-    transition: backdrop-filter 300ms 0ms ease-in-out, z-index 0ms 300ms;
+    transition: backdrop-filter 300ms 0ms linear, z-index 0ms 300ms;
 
     &.active {
         z-index: 9;
         backdrop-filter: blur(2px);
-        transition: backdrop-filter 300ms 0ms ease-in-out, z-index 0ms;
+        transition: backdrop-filter 300ms 0ms linear, z-index 0ms;
     }
 }

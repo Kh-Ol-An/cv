@@ -69,6 +69,21 @@ export default {
     display: flex;
     align-items: center;
 
+    @media (max-width: 2559px) {
+        left: 30px;
+    }
+
+    @media (max-width: 1023px) {
+        top: 25px;
+        left: unset;
+        right: 25px;
+        transform: translateY(0);
+        flex-flow: column;
+        align-items: flex-end;
+        width: 120px;
+        height: 24px;
+    }
+
     &::before,
     &::after {
         content: '';
@@ -77,26 +92,60 @@ export default {
         width: 2px;
         height: 21px;
         background: #404242;
+
+        @media (max-width: 1023px) {
+            display: none;
+        }
     }
 
     &::before {
         top: 40px;
+
+        @media (max-width: 2559px) {
+            top: 30px;
+            left: -15px;
+        }
     }
 
     &::after {
         top: 95px;
+
+        @media (max-width: 2559px) {
+            top: 77px;
+            left: -15px;
+        }
     }
 
     &.open {
     }
 
     &__list {
+        @media (max-width: 1023px) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 300ms linear;
+        }
+
         &-item {
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-top: 15px;
+
+            @media (max-width: 1023px) {
+                width: 40px;
+                height: 34px;
+                margin-top: 0;
+            }
 
             &:first-child {
                 margin-top: 0;
@@ -111,7 +160,16 @@ export default {
                 height: 10px;
                 background: #a4a5a6;
                 border-radius: 50%;
-                transition: all 300ms ease-in-out;
+                transition: all 300ms linear;
+
+                @media (max-width: 2559px) {
+                    top: 12px;
+                    left: -19px;
+                }
+
+                @media (max-width: 1023px) {
+                    display: none;
+                }
             }
 
             &.active::after {
@@ -139,9 +197,19 @@ export default {
                 font-size: 1rem;
                 line-height: 30px;
                 cursor: pointer;
-                transition: all 300ms ease-in-out;
+                transition: all 300ms linear;
+
+                @media (max-width: 1023px) {
+                    font-size: 14px;
+                }
 
                 &:hover {
+                    color: $active-color;
+                }
+            }
+
+            &.active .section__content-text {
+                @media (max-width: 1023px) {
                     color: $active-color;
                 }
             }
@@ -162,6 +230,10 @@ export default {
         width: 100%;
         height: 100%;
         transition: all 300ms linear;
+
+        @media (max-width: 1023px) {
+            display: block;
+        }
 
         &-line1,
         &-line2,
@@ -207,6 +279,4 @@ export default {
         transition: all 300ms linear;
     }
 }
-
-@import "~@/styles/media.scss";
 </style>

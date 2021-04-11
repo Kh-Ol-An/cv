@@ -46,6 +46,4 @@ export default {
         background: $bg-color_2;
     }
 }
-
-@import "~@/styles/media.scss";
 </style>

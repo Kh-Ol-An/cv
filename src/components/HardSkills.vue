@@ -7,41 +7,41 @@
                 :text="getContentLang.hardSkillsText"
             />
             <div class='hard-skills__content section__content'>
-                <ul class='section__content-quality'>
-                    <li class='section__content-quality-item first' ref="js">
+                <ul class='section__content-quality' ref="hardSkillsList">
+                    <li class='section__content-quality-item first'>
                         <p class='naming__title'>JavaScript</p>
                     </li>
-                    <li class='section__content-quality-item second' ref="jq">
+                    <li class='section__content-quality-item second'>
                         <p class='naming__title'>JQuery</p>
                     </li>
-                    <li class='section__content-quality-item first' ref="vue">
+                    <li class='section__content-quality-item first'>
                         <p class='naming__title'>Vue</p>
                     </li>
-                    <li class='section__content-quality-item second' ref="react">
+                    <li class='section__content-quality-item second'>
                         <p class='naming__title'>React</p>
                     </li>
-                    <li class='section__content-quality-item first' ref="html">
+                    <li class='section__content-quality-item first'>
                         <p class='naming__title'>HTML5</p>
                     </li>
-                    <li class='section__content-quality-item second' ref="css">
+                    <li class='section__content-quality-item second'>
                         <p class='naming__title'>CSS3 (Sass, SCSS, Less, Grid, Flexbox)</p>
                     </li>
-                    <li class='section__content-quality-item first' ref="avd">
+                    <li class='section__content-quality-item first'>
                         <p class='naming__title'>Adaptive Web Design</p>
                     </li>
-                    <li class='section__content-quality-item second' ref="ajax">
+                    <li class='section__content-quality-item second'>
                         <p class='naming__title'>AJAX</p>
                     </li>
-                    <li class='section__content-quality-item first' ref="git">
+                    <li class='section__content-quality-item first'>
                         <p class='naming__title'>Git</p>
                     </li>
-                    <li class='section__content-quality-item second' ref="wg">
+                    <li class='section__content-quality-item second'>
                         <p class='naming__title'>Webpack/Gulp</p>
                     </li>
-                    <li class='section__content-quality-item first' ref="photoshop">
+                    <li class='section__content-quality-item first'>
                         <p class='naming__title'>Photoshop</p>
                     </li>
-                    <li class='section__content-quality-item second' ref="english">
+                    <li class='section__content-quality-item second'>
                         <p class='naming__title'>{{ getContentLang.hardSkillsEnglish }}</p>
                     </li>
                 </ul>
@@ -75,19 +75,7 @@ export default {
             this.observerOptions = {...this.observerOptions, rootMargin: "-39px"}
         }
         this.observer = new IntersectionObserver(this.onEntry, this.observerOptions);
-
-        this.observer.observe(this.$refs.js);
-        this.observer.observe(this.$refs.jq);
-        this.observer.observe(this.$refs.vue);
-        this.observer.observe(this.$refs.react);
-        this.observer.observe(this.$refs.html);
-        this.observer.observe(this.$refs.css);
-        this.observer.observe(this.$refs.avd);
-        this.observer.observe(this.$refs.ajax);
-        this.observer.observe(this.$refs.git);
-        this.observer.observe(this.$refs.wg);
-        this.observer.observe(this.$refs.photoshop);
-        this.observer.observe(this.$refs.english);
+        this.$refs.hardSkillsList.childNodes.forEach(el => this.observer.observe(el))
     },
     methods: {
         onEntry(entries) {
@@ -136,21 +124,23 @@ export default {
                 width: 0;
                 height: 3px;
                 background: $active-color;
-                transition: all 600ms ease-in-out;
+                transition: all 600ms linear;
             }
 
             &.active-first::after {
                 width: 15%;
-                transition: all 600ms ease-in-out;
+                transition: all 600ms linear;
             }
 
             &.active-second::after {
                 width: 15%;
-                transition: all 600ms 200ms ease-in-out;
+                transition: all 600ms 200ms linear;
+
+                @media (max-width: 1023px) {
+                    transition: all 600ms linear;
+                }
             }
         }
     }
 }
-
-@import "~@/styles/media.scss";
 </style>

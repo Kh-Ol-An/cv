@@ -170,6 +170,17 @@ export default {
     height: 100vh;
     background: $bg-color_1;
 
+    @media (max-width: 1023px) {
+        height: max-content;
+        padding: 50px;
+    }
+
+    @media (max-width: 767px) {
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100);
+        padding: 25px;
+    }
+
     &::before {
         background: $bg-color_2;
     }
@@ -189,6 +200,18 @@ export default {
         justify-content: center;
         background: $bg-color_2;
 
+        @media (max-width: 1023px) {
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            background: transparent;
+        }
+
+        @media (max-width: 767px) {
+            height: max-content;
+            padding: 0;
+        }
+
         &-ava {
             width: 236px;
             height: 236px;
@@ -197,10 +220,25 @@ export default {
             opacity: 0;
             transform: translateY(100px);
 
+            @media (max-width: 1365px) {
+                width: 200px;
+                height: 200px;
+            }
+
+            @media (max-width: 1023px) {
+                width: 196px;
+                height: 196px;
+            }
+
+            @media (max-width: 767px) {
+                width: 130px;
+                height: 130px;
+            }
+
             &.active {
                 opacity: 1;
                 transform: translateY(0);
-                transition: all 1200ms ease-in-out;
+                transition: all 1200ms linear;
             }
 
             img {
@@ -217,12 +255,27 @@ export default {
         align-items: center;
         background: $bg-color_1;
 
+        @media (max-width: 1023px) {
+            flex-flow: column;
+            margin-top: 20px;
+            padding: 0;
+        }
+
+        @media (max-width: 767px) {
+            margin-top: 15px;
+            padding: 0;
+        }
+
         &-presentation {
             width: 100%;
 
             &-title {
                 display: flex;
                 flex-flow: column;
+
+                @media (max-width: 1023px) {
+                    text-align: center;
+                }
 
                 &-name {
                     position: relative;
@@ -235,10 +288,18 @@ export default {
                     opacity: 0;
                     transform: translateY(50px);
 
+                    @media (max-width: 767px) {
+                        font-size: 42px;
+                    }
+
+                    @media (max-width: 374px) {
+                        font-size: 34px;
+                    }
+
                     &.active {
                         opacity: 1;
                         transform: translateY(0);
-                        transition: all 1200ms 300ms ease-in-out;
+                        transition: all 1200ms 300ms linear;
                     }
                 }
 
@@ -252,10 +313,22 @@ export default {
                     opacity: 0;
                     transform: translateY(50px);
 
+                    @media (max-width: 1023px) {
+                        margin: 0 auto;
+                    }
+
+                    @media (max-width: 767px) {
+                        font-size: 42px;
+                    }
+
+                    @media (max-width: 374px) {
+                        font-size: 34px;
+                    }
+
                     &.active {
                         opacity: 1;
                         transform: translateY(0);
-                        transition: all 1200ms 500ms ease-in-out;
+                        transition: all 1200ms 500ms linear;
                     }
 
 
@@ -268,6 +341,16 @@ export default {
                 align-items: flex-end;
                 justify-content: space-between;
 
+                @media (max-width: 1023px) {
+                    flex-flow: column;
+                    align-items: center;
+                    margin-top: 10px;
+                }
+
+                @media (max-width: 767px) {
+                    margin-top: 5px;
+                }
+
                 &-profession {
                     font-size: 1.25rem;
                     color: $text-color_2;
@@ -275,10 +358,18 @@ export default {
                     opacity: 0;
                     transform: translateY(50px);
 
+                    @media (max-width: 1023px) {
+                        text-align: center;
+                    }
+
+                    @media (max-width: 767px) {
+                        font-size: 14px;
+                    }
+
                     &.active {
                         opacity: 1;
                         transform: translateY(0);
-                        transition: all 1200ms 700ms ease-in-out;
+                        transition: all 1200ms 700ms linear;
                     }
                 }
 
@@ -286,12 +377,24 @@ export default {
                     display: flex;
                     align-items: center;
 
+                    @media (max-width: 1023px) {
+                        margin-top: 35px;
+                    }
+
+                    @media (max-width: 767px) {
+                        margin-top: 20px;
+                    }
+
                     &-item {
                         width: 2.375em;
                         height: 2.375em;
                         margin-left: 0.375em;
                         border-radius: 0.1875em;
                         background: #3f4040;
+
+                        @media (max-width: 1023px) {
+                            font-size: 14px;
+                        }
 
                         &:nth-child(1) {
                             margin-left: 0;
@@ -301,7 +404,7 @@ export default {
                             &.active {
                                 opacity: 1;
                                 transform: translateY(0);
-                                transition: all 1200ms 900ms ease-in-out;
+                                transition: all 1200ms 900ms linear;
                             }
                         }
 
@@ -312,7 +415,7 @@ export default {
                             &.active {
                                 opacity: 1;
                                 transform: translateY(0);
-                                transition: all 1200ms 1100ms ease-in-out;
+                                transition: all 1200ms 1100ms linear;
                             }
                         }
 
@@ -323,7 +426,7 @@ export default {
                             &.active {
                                 opacity: 1;
                                 transform: translateY(0);
-                                transition: all 1200ms 1300ms ease-in-out;
+                                transition: all 1200ms 1300ms linear;
                             }
                         }
 
@@ -334,7 +437,7 @@ export default {
                             &.active {
                                 opacity: 1;
                                 transform: translateY(0);
-                                transition: all 1200ms 1500ms ease-in-out;
+                                transition: all 1200ms 1500ms linear;
                             }
                         }
 
@@ -350,12 +453,12 @@ export default {
                             height: 100%;
                             fill: #717273;
                             stroke: #717273;
-                            transition: all 300ms ease-in-out;
+                            transition: all 300ms linear;
 
                             path {
                                 fill: #717273;
                                 stroke: #717273;
-                                transition: all 300ms ease-in-out;
+                                transition: all 300ms linear;
                             }
                         }
 
@@ -375,6 +478,17 @@ export default {
             bottom: 50px;
             width: calc(100% - 60px);
 
+            @media (max-width: 1023px) {
+                position: static;
+                width: 100%;
+                margin-top: 25px;
+            }
+
+            @media (max-width: 767px) {
+                margin-top: auto;
+                padding-top: 30px;
+            }
+
             &-list {
                 position: relative;
                 display: flex;
@@ -382,6 +496,10 @@ export default {
                 justify-content: space-between;
                 width: 100%;
                 padding-top: 20px;
+
+                @media (max-width: 767px) {
+                    flex-flow: column;
+                }
 
                 &::before {
                     content: '';
@@ -395,18 +513,27 @@ export default {
 
                 &.active::before {
                     width: 100%;
-                    transition: all 1200ms 1800ms ease-in-out;
+                    transition: all 1200ms 1800ms linear;
                 }
 
                 &-item {
+                    @media (max-width: 767px) {
+                        margin-top: 20px;
+                        text-align: center;
+                    }
+
                     &:nth-child(1) {
                         opacity: 0;
                         transform: translateY(50px);
 
+                        @media (max-width: 767px) {
+                            margin-top: 0;
+                        }
+
                         &.active {
                             opacity: 1;
                             transform: translateY(0);
-                            transition: all 1200ms 2000ms ease-in-out;
+                            transition: all 1200ms 2000ms linear;
                         }
                     }
 
@@ -417,7 +544,7 @@ export default {
                         &.active {
                             opacity: 1;
                             transform: translateY(0);
-                            transition: all 1200ms 2200ms ease-in-out;
+                            transition: all 1200ms 2200ms linear;
                         }
                     }
 
@@ -428,7 +555,7 @@ export default {
                         &.active {
                             opacity: 1;
                             transform: translateY(0);
-                            transition: all 1200ms 2400ms ease-in-out;
+                            transition: all 1200ms 2400ms linear;
                         }
                     }
 
@@ -439,7 +566,7 @@ export default {
                         &.active {
                             opacity: 1;
                             transform: translateY(0);
-                            transition: all 1200ms 2600ms ease-in-out;
+                            transition: all 1200ms 2600ms linear;
                         }
                     }
 
@@ -450,7 +577,7 @@ export default {
 
                     &-link {
                         color: $text-color_2;
-                        transition: all 300ms ease-in-out;
+                        transition: all 300ms linear;
 
                         &:hover {
                             color: $active-color;
@@ -461,6 +588,4 @@ export default {
         }
     }
 }
-
-@import "~@/styles/media.scss";
 </style>

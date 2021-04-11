@@ -72,6 +72,4 @@ export default {
         }
     }
 }
-
-@import "~@/styles/media.scss";
 </style>

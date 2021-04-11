@@ -150,8 +150,20 @@ export default {
         padding-bottom: 0;
         background: $bg-color_1;
 
+        @media (max-width: 1023px) {
+            padding-bottom: 0;
+        }
+
+        @media (max-width: 767px) {
+            padding-bottom: 0;
+        }
+
         .section__content-places {
             padding-bottom: 50px;
+
+            @media (max-width: 767px) {
+                padding-bottom: 25px;
+            }
 
             &-item::before {
                 box-shadow: 0 0 0 10px $bg-color_1;
@@ -159,6 +171,4 @@ export default {
         }
     }
 }
-
-@import "~@/styles/media.scss";
 </style>

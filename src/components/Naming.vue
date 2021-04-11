@@ -23,6 +23,17 @@ export default {
     height: 100%;
     padding: 50px 60px 50px 0;
 
+    @media (max-width: 1023px) {
+        align-items: flex-start;
+        width: 100%;
+        padding: 50px;
+        background: $bg-color_3;
+    }
+
+    @media (max-width: 767px) {
+        padding: 25px;
+    }
+
     &__title {
         font-size: 1.125rem; // 18px
         font-weight: 700;
@@ -33,8 +44,25 @@ export default {
     &__text {
         color: $text-color_2;
         text-align: right;
+
+        @media (max-width: 1365px) {
+            width: 140px;
+        }
+
+        @media (max-width: 1023px) {
+            width: 100%;
+            text-align: left;
+        }
     }
 }
 
-@import "~@/styles/media.scss";
+.hobbies .naming__text {
+    @media (max-width: 1365px) {
+        width: 130px;
+    }
+
+    @media (max-width: 1023px) {
+        width: 100%;
+    }
+}
 </style>

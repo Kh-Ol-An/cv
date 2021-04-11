@@ -46,5 +46,4 @@ export default {
 @import "~@/styles/fonts.scss";
 @import "~@/styles/base.scss";
 @import "~@/styles/section.scss";
-@import "~@/styles/media.scss";
 </style>
