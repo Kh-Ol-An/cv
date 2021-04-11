@@ -8,7 +8,7 @@
             />
             <div class='experience__content section__content'>
                 <ul class='section__content-places'>
-                    <li class='section__content-places-item'>
+                    <li class='section__content-places-item' ref="testRef">
                         <div class='section__content-places-item-place'>
                             <p class='section__content-time'>2020.04 - {{ getContentLang.experiencePresent }}</p>
                             <h3 class='naming__title'>Smart Group</h3>
@@ -124,9 +124,30 @@ import Naming from "@/components/Naming.vue";
 export default {
     name: "Experience",
     components: {Naming},
+    data() {
+        return {
+            lastScrollTop: 0,
+            top: window.pageYOffset,
+        }
+    },
     computed: {
         ...mapGetters(["getContentLang"]),
+    },
+    mounted() {
+        window.addEventListener('scroll', () => {
+
+            if (this.lastScrollTop > this.top) {
+                console.log('top');
+            } else if (this.lastScrollTop < this.top) {
+                console.log('down');
+            }
+            this.lastScrollTop = this.top;
+            console.log("mark", this.top)
+            // console.log(this.$refs.testRef.getBoundingClientRect().y)
+            // console.log(window.innerHeight / 2)
+        });
     }
+//    https://learn.javascript.ru/coordinates
 }
 </script>
 
