@@ -1,5 +1,5 @@
 <template>
-    <header class='header section' ref="header">
+    <header class='header section'>
         <div class='container'>
             <div class='header__naming naming'>
                 <div class='header__naming-ava' ref="ava">
@@ -243,7 +243,7 @@ export default {
 
             img {
                 object-fit: cover;
-                filter: grayscale(100%);
+                //filter: grayscale(100%);
             }
         }
     }

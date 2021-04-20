@@ -133,20 +133,20 @@ export default {
     computed: {
         ...mapGetters(["getContentLang"]),
     },
-    mounted() {
-        window.addEventListener('scroll', () => {
-
-            if (this.lastScrollTop > this.top) {
-                console.log('top');
-            } else if (this.lastScrollTop < this.top) {
-                console.log('down');
-            }
-            this.lastScrollTop = this.top;
-            console.log("mark", this.top)
-            // console.log(this.$refs.testRef.getBoundingClientRect().y)
-            // console.log(window.innerHeight / 2)
-        });
-    }
+    // mounted() {
+    //     window.addEventListener('scroll', () => {
+    //
+    //         if (this.lastScrollTop > this.top) {
+    //             console.log('top');
+    //         } else if (this.lastScrollTop < this.top) {
+    //             console.log('down');
+    //         }
+    //         this.lastScrollTop = this.top;
+    //         console.log("mark", this.top)
+    //         // console.log(this.$refs.testRef.getBoundingClientRect().y)
+    //         // console.log(window.innerHeight / 2)
+    //     });
+    // }
 //    https://learn.javascript.ru/coordinates
 }
 </script>
